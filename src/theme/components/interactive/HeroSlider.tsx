@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { Link, ThemeImage, useReducedMotion, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { Icon } from '../catalog'
-import { useContact } from '../site'
 import styles from '../../styles/site.module.css'
 
 const everyMs = 6000
@@ -11,7 +10,6 @@ const everyMs = 6000
 /** The home page's three slides, turning every few seconds unless paused or the shopper prefers less motion. */
 export const HeroSlider = () => {
   const { t } = useStorefront()
-  const contact = useContact()
   const still = useReducedMotion()
   const [shown, setShown] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -45,12 +43,10 @@ export const HeroSlider = () => {
                       <span>{t('home.hero.explore')}</span>
                       <Icon name="arrow" className={styles.btnIcon} />
                     </Link>
-                    {contact.hello ? (
-                      <Link href={contact.hello} className={`${styles.btn} ${styles.btnLight}`}>
-                        <Icon name="whatsapp" className={styles.btnIcon} />
-                        <span>{t('home.hero.chat')}</span>
-                      </Link>
-                    ) : null}
+                    <Link href="/team-orders/" className={`${styles.btn} ${styles.btnLight}`}>
+                      <Icon name="team" className={styles.btnIcon} />
+                      <span>{t('home.hero.team')}</span>
+                    </Link>
                   </div>
                 ) : null}
               </div>

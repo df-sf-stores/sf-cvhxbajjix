@@ -183,13 +183,18 @@
   "shop": {
     "seo": "Shop by Sport | {store}",
     "eyebrow": "Shop by sport",
-    "title": "Our products",
-    "lead": "Cricket, football, badminton, tennis, swimming, gym & fitness, footwear, apparel, gifts and trophies – all under one roof.",
-    "notice": "Prices and availability on request – contact us on WhatsApp.",
-    "noticeLink": "Chat now",
+    "title": "Shop our products",
+    "lead": "Cricket, football, badminton, tennis, swimming, gym & fitness, footwear, apparel, gifts and trophies – order online with secure checkout.",
     "filter": "Filter by category",
     "all": "All",
-    "count": "{count, plural, one {# product} other {# products}} shown"
+    "count": "{count, plural, one {# product} other {# products}}",
+    "loading": "Loading products",
+    "failed": "We couldn't load the products.",
+    "retry": "Try again",
+    "emptyTitle": "Nothing here yet",
+    "empty": "We're adding products to this category soon. Browse everything we have in the meantime.",
+    "seeAll": "See all products",
+    "catalogue": "Browse full catalogue with filters"
   },
   "brands": {
     "seo": "Brands | {store}",

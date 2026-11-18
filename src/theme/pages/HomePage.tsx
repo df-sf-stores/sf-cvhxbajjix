@@ -1,20 +1,18 @@
-import { Link, ThemeImage, useHead, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { Link, ThemeImage, useHead, useProducts, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { Layout } from '../components/Layout'
-import { ProductTile, SectionHead, SportTile } from '../components/Blocks'
-import { Icon, useProductsList, useSports } from '../components/catalog'
+import { ProductSkeleton, SectionHead, SportTile, StoreProductCard } from '../components/Blocks'
+import { Icon, useSports } from '../components/catalog'
 import { HeroSlider } from '../components/interactive/HeroSlider'
 import { useContact } from '../components/site'
 import styles from '../styles/site.module.css'
 
 const slots = [0, 1, 2, 3, 4, 5, 6, 7]
-const featured = new Set(['bat', 'football', 'racket', 'tennisRacket', 'swim', 'dumbbells', 'shoes', 'jersey'])
 
 export const HomePage = () => {
   const { store, t } = useStorefront()
   const contact = useContact()
   const sports = useSports()
-  const products = useProductsList().filter((p) => featured.has(p.id))
-  const sportName = new Map<string, string>(sports.map((s) => [s.id, s.name]))
+  const featured = useProducts({ sort: 'newest', first: 8 })
   useHead({ title: t('home.seo.title', { store: store.name }), description: t('home.seo.description', { store: store.name }) })
   const trust = [
     { icon: 'shield', label: t('home.trust.genuine') },
@@ -121,15 +119,21 @@ export const HomePage = () => {
       <section className={styles.section}>
         <div className={styles.container}>
           <SectionHead eyebrow={t('home.products.eyebrow')} title={t('home.products.title')} lead={t('home.products.lead')} />
-          <ul className={styles.productGrid}>
-            {products.map((p) => (
-              <li key={p.id} className={styles.reveal}>
-                <ProductTile product={p} sport={sportName.get(p.sport) ?? ''} />
-              </li>
-            ))}
-          </ul>
+          {featured.status === 'ready' && featured.products.length === 0 ? (
+            <p className={`${styles.lead} ${styles.centerText}`}>{t('home.products.empty')}</p>
+          ) : featured.status === 'ready' ? (
+            <ul className={styles.productGrid}>
+              {featured.products.map((p) => (
+                <li key={p.id} className={styles.reveal}>
+                  <StoreProductCard product={p} />
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ProductSkeleton label={t('home.products.loading')} />
+          )}
           <div className={styles.center}>
-            <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnOutline}`}>
+            <Link href="/collections/all/" className={`${styles.btn} ${styles.btnOutline}`}>
               <span>{t('home.products.all')}</span>
               <Icon name="arrow" className={styles.btnIcon} />
             </Link>
@@ -275,12 +279,10 @@ export const HomePage = () => {
                   <span>{t('home.cta.call', { phone: contact.phone })}</span>
                 </Link>
               ) : null}
-              {contact.hello ? (
-                <Link href={contact.hello} className={`${styles.btn} ${styles.btnGreen}`}>
-                  <Icon name="whatsapp" className={styles.btnIcon} />
-                  <span>{t('home.cta.whatsapp')}</span>
-                </Link>
-              ) : null}
+              <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnGreen}`}>
+                <Icon name="cart" className={styles.btnIcon} />
+                <span>{t('home.cta.shop')}</span>
+              </Link>
               <Link href={t('site.links.google')} className={`${styles.btn} ${styles.btnLight}`}>
                 <Icon name="pin" className={styles.btnIcon} />
                 <span>{t('home.cta.directions')}</span>

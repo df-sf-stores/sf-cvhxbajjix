@@ -7,8 +7,7 @@
     "label": "Highlights",
     "carousel": "carousel",
     "slide": "slide",
-    "explore": "Explore Products",
-    "chat": "Chat on WhatsApp",
+    "explore": "Shop Now",
     "previous": "Previous slide",
     "next": "Next slide",
     "one": {
@@ -34,7 +33,8 @@
       "alt": "A young football team gathered around their coach",
       "position": "Slide 3 of 3",
       "goTo": "Show slide 3"
-    }
+    },
+    "team": "Team Orders"
   },
   "trust": {
     "label": "Why shop with us",
@@ -63,9 +63,11 @@
   },
   "products": {
     "eyebrow": "Featured products",
-    "title": "Popular picks from our store",
-    "lead": "Prices and availability on request – tap Enquire on WhatsApp and we'll get back to you.",
-    "all": "View all products"
+    "title": "Fresh in our store",
+    "lead": "Genuine gear with secure online checkout – add to cart and order in minutes.",
+    "all": "View all products",
+    "loading": "Loading products",
+    "empty": "New products are being added – check back soon."
   },
   "brands": {
     "eyebrow": "Top brands",
@@ -89,21 +91,48 @@
     "eyebrow": "Why choose us",
     "title": "Why players choose {store}",
     "lead": "Trust, genuine products and real relationships with the local sports community.",
-    "genuine": { "title": "100% Genuine Products", "body": "Only authentic equipment and apparel, so you can play with confidence." },
-    "brands": { "title": "Top Brands", "body": "A wide range of trusted brands across cricket, football, racket sports, swimming and fitness." },
-    "expert": { "title": "Expert Guidance", "body": "Not sure which bat, racket or shoe suits you? We'll help you pick the right gear." },
-    "prices": { "title": "Best Prices", "body": "Competitive pricing for individuals, with special support for team and bulk orders." },
-    "teams": { "title": "Team & School Orders", "body": "Kits, jerseys, equipment, trophies and medals for schools, colleges, clubs and academies." },
-    "local": { "title": "Local & Trusted", "body": "A neighbourhood sports store that has grown with Ramachandrapuram since 2015." }
+    "genuine": {
+      "title": "100% Genuine Products",
+      "body": "Only authentic equipment and apparel, so you can play with confidence."
+    },
+    "brands": {
+      "title": "Top Brands",
+      "body": "A wide range of trusted brands across cricket, football, racket sports, swimming and fitness."
+    },
+    "expert": {
+      "title": "Expert Guidance",
+      "body": "Not sure which bat, racket or shoe suits you? We'll help you pick the right gear."
+    },
+    "prices": {
+      "title": "Best Prices",
+      "body": "Competitive pricing for individuals, with special support for team and bulk orders."
+    },
+    "teams": {
+      "title": "Team & School Orders",
+      "body": "Kits, jerseys, equipment, trophies and medals for schools, colleges, clubs and academies."
+    },
+    "local": {
+      "title": "Local & Trusted",
+      "body": "A neighbourhood sports store that has grown with Ramachandrapuram since 2015."
+    }
   },
   "reviews": {
     "eyebrow": "Testimonials",
     "title": "What our customers say",
     "lead": "Real reviews from our customers will appear here.",
     "google": "See our Google Reviews",
-    "one": { "text": "Placeholder review – a short quote from a customer about the products and service will go here.", "name": "Customer name" },
-    "two": { "text": "Placeholder review – a short quote from a school or team coach about a bulk order will go here.", "name": "Coach name" },
-    "three": { "text": "Placeholder review – a short quote from a player about the advice they received will go here.", "name": "Player name" }
+    "one": {
+      "text": "Placeholder review – a short quote from a customer about the products and service will go here.",
+      "name": "Customer name"
+    },
+    "two": {
+      "text": "Placeholder review – a short quote from a school or team coach about a bulk order will go here.",
+      "name": "Coach name"
+    },
+    "three": {
+      "text": "Placeholder review – a short quote from a player about the advice they received will go here.",
+      "name": "Player name"
+    }
   },
   "insta": {
     "eyebrow": "Instagram",
@@ -123,8 +152,8 @@
     "title": "Visit Our Store Today",
     "lead": "Come see the range in person, get expert advice and find the right gear for your game – upstairs of Moti Jewellers, Main Road, Ramachandrapuram.",
     "call": "Call {phone}",
-    "whatsapp": "WhatsApp Us",
     "directions": "Get Directions",
-    "imageAlt": "A sprinter crouched at the starting line"
+    "imageAlt": "A sprinter crouched at the starting line",
+    "shop": "Shop Online"
   }
 }

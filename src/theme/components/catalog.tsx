@@ -36,6 +36,8 @@ export type IconName =
   | 'jersey'
   | 'box'
   | 'flag'
+  | 'cart'
+  | 'user'
 
 const paths: Record<IconName, ReactNode> = {
   cricket: (
@@ -209,6 +211,18 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M3.5 7.5L12 11.5l8.5-4M12 11.5v9" />
     </>
   ),
+  cart: (
+    <>
+      <path d="M5.5 8h13l-1 12h-11z" />
+      <path d="M9 8V6.5a3 3 0 016 0V8" />
+    </>
+  ),
+  user: (
+    <>
+      <circle cx="12" cy="8.5" r="3.8" />
+      <path d="M4.5 20c1.2-3.6 4-5.4 7.5-5.4s6.3 1.8 7.5 5.4" />
+    </>
+  ),
   flag: <path d="M5 21V4M5 4.5h12l-2.5 4 2.5 4H5" />,
 }
 
@@ -225,39 +239,14 @@ export type SportId = 'cricket' | 'football' | 'badminton' | 'tennis' | 'swimmin
 export const useSports = () => {
   const { t } = useStorefront()
   return [
-    { id: 'cricket', image: 'sport-cricket.webp', name: t('catalog.sports.cricket.name'), tab: t('catalog.sports.cricket.name'), blurb: t('catalog.sports.cricket.blurb') },
-    { id: 'football', image: 'sport-football.webp', name: t('catalog.sports.football.name'), tab: t('catalog.sports.football.name'), blurb: t('catalog.sports.football.blurb') },
-    { id: 'badminton', image: 'sport-badminton.webp', name: t('catalog.sports.badminton.name'), tab: t('catalog.sports.badminton.name'), blurb: t('catalog.sports.badminton.blurb') },
-    { id: 'tennis', image: 'sport-tennis.webp', name: t('catalog.sports.tennis.name'), tab: t('catalog.sports.tennis.name'), blurb: t('catalog.sports.tennis.blurb') },
-    { id: 'swimming', image: 'sport-swimming.webp', name: t('catalog.sports.swimming.name'), tab: t('catalog.sports.swimming.name'), blurb: t('catalog.sports.swimming.blurb') },
-    { id: 'gym', image: 'sport-gym.webp', name: t('catalog.sports.gym.name'), tab: t('catalog.sports.gym.name'), blurb: t('catalog.sports.gym.blurb') },
-    { id: 'footwear', image: 'sport-footwear.webp', name: t('catalog.sports.footwear.name'), tab: t('catalog.sports.footwear.name'), blurb: t('catalog.sports.footwear.blurb') },
-    { id: 'apparel', image: 'sport-apparel.webp', name: t('catalog.sports.apparel.name'), tab: t('catalog.sports.apparel.tab'), blurb: t('catalog.sports.apparel.blurb') },
-    { id: 'gifts', image: null, name: t('catalog.sports.gifts.name'), tab: t('catalog.sports.gifts.name'), blurb: t('catalog.sports.gifts.blurb') },
-  ] as const
-}
-
-/** Placeholder products, each to be replaced with what the store really stocks. */
-export const useProductsList = () => {
-  const { t } = useStorefront()
-  return [
-    { id: 'bat', sport: 'cricket', image: 'prod-cricket-bat.webp', art: null, name: t('catalog.products.bat.name'), desc: t('catalog.products.bat.desc') },
-    { id: 'ball', sport: 'cricket', image: 'prod-cricket-ball.webp', art: null, name: t('catalog.products.ball.name'), desc: t('catalog.products.ball.desc') },
-    { id: 'football', sport: 'football', image: 'prod-football.webp', art: null, name: t('catalog.products.football.name'), desc: t('catalog.products.football.desc') },
-    { id: 'training', sport: 'football', image: 'prod-football-train.webp', art: null, name: t('catalog.products.training.name'), desc: t('catalog.products.training.desc') },
-    { id: 'racket', sport: 'badminton', image: 'prod-shuttle.webp', art: null, name: t('catalog.products.racket.name'), desc: t('catalog.products.racket.desc') },
-    { id: 'tennisRacket', sport: 'tennis', image: 'prod-tennis.webp', art: null, name: t('catalog.products.tennisRacket.name'), desc: t('catalog.products.tennisRacket.desc') },
-    { id: 'tennisBalls', sport: 'tennis', image: 'prod-tennis-ball.webp', art: null, name: t('catalog.products.tennisBalls.name'), desc: t('catalog.products.tennisBalls.desc') },
-    { id: 'swim', sport: 'swimming', image: 'prod-swim.webp', art: null, name: t('catalog.products.swim.name'), desc: t('catalog.products.swim.desc') },
-    { id: 'dumbbells', sport: 'gym', image: 'prod-dumbbells.webp', art: null, name: t('catalog.products.dumbbells.name'), desc: t('catalog.products.dumbbells.desc') },
-    { id: 'ropes', sport: 'gym', image: 'prod-ropes.webp', art: null, name: t('catalog.products.ropes.name'), desc: t('catalog.products.ropes.desc') },
-    { id: 'mat', sport: 'gym', image: 'prod-mat.webp', art: null, name: t('catalog.products.mat.name'), desc: t('catalog.products.mat.desc') },
-    { id: 'shoes', sport: 'footwear', image: 'prod-shoes.webp', art: null, name: t('catalog.products.shoes.name'), desc: t('catalog.products.shoes.desc') },
-    { id: 'studs', sport: 'footwear', image: 'prod-football-boots.webp', art: null, name: t('catalog.products.studs.name'), desc: t('catalog.products.studs.desc') },
-    { id: 'jersey', sport: 'apparel', image: 'prod-jersey.webp', art: null, name: t('catalog.products.jersey.name'), desc: t('catalog.products.jersey.desc') },
-    { id: 'kit', sport: 'apparel', image: 'team-volley.webp', art: null, name: t('catalog.products.kit.name'), desc: t('catalog.products.kit.desc') },
-    { id: 'trophy', sport: 'gifts', image: null, art: 'gifts', name: t('catalog.products.trophy.name'), desc: t('catalog.products.trophy.desc') },
-    { id: 'medal', sport: 'gifts', image: null, art: 'medal', name: t('catalog.products.medal.name'), desc: t('catalog.products.medal.desc') },
-    { id: 'hamper', sport: 'gifts', image: null, art: 'box', name: t('catalog.products.hamper.name'), desc: t('catalog.products.hamper.desc') },
+    { id: 'cricket', words: ['cricket', 'bat', 'stumps', 'wicket'], image: 'sport-cricket.webp', name: t('catalog.sports.cricket.name'), tab: t('catalog.sports.cricket.name'), blurb: t('catalog.sports.cricket.blurb') },
+    { id: 'football', words: ['football', 'soccer', 'studs'], image: 'sport-football.webp', name: t('catalog.sports.football.name'), tab: t('catalog.sports.football.name'), blurb: t('catalog.sports.football.blurb') },
+    { id: 'badminton', words: ['badminton', 'shuttle', 'shuttlecock'], image: 'sport-badminton.webp', name: t('catalog.sports.badminton.name'), tab: t('catalog.sports.badminton.name'), blurb: t('catalog.sports.badminton.blurb') },
+    { id: 'tennis', words: ['tennis', 'squash', 'pickleball', 'paddle'], image: 'sport-tennis.webp', name: t('catalog.sports.tennis.name'), tab: t('catalog.sports.tennis.name'), blurb: t('catalog.sports.tennis.blurb') },
+    { id: 'swimming', words: ['swim', 'goggle', 'swimming'], image: 'sport-swimming.webp', name: t('catalog.sports.swimming.name'), tab: t('catalog.sports.swimming.name'), blurb: t('catalog.sports.swimming.blurb') },
+    { id: 'gym', words: ['gym', 'fitness', 'dumbbell', 'yoga', 'weight'], image: 'sport-gym.webp', name: t('catalog.sports.gym.name'), tab: t('catalog.sports.gym.name'), blurb: t('catalog.sports.gym.blurb') },
+    { id: 'footwear', words: ['shoe', 'shoes', 'footwear', 'sneaker'], image: 'sport-footwear.webp', name: t('catalog.sports.footwear.name'), tab: t('catalog.sports.footwear.name'), blurb: t('catalog.sports.footwear.blurb') },
+    { id: 'apparel', words: ['jersey', 'shirt', 'shorts', 'track', 'apparel', 'wear'], image: 'sport-apparel.webp', name: t('catalog.sports.apparel.name'), tab: t('catalog.sports.apparel.tab'), blurb: t('catalog.sports.apparel.blurb') },
+    { id: 'gifts', words: ['trophy', 'medal', 'gift', 'memento'], image: null, name: t('catalog.sports.gifts.name'), tab: t('catalog.sports.gifts.name'), blurb: t('catalog.sports.gifts.blurb') },
   ] as const
 }

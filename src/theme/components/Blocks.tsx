@@ -1,42 +1,61 @@
 import type { ReactNode } from 'react'
-import { Link, ThemeImage, useStorefront } from '@dripfunnel/storefront-core/theme'
-import { Icon, useProductsList, useSports } from './catalog'
-import { useContact } from './site'
+import { Image, Link, Price, ThemeImage, useStorefront, type ProductCard as Card } from '@dripfunnel/storefront-core/theme'
+import { Icon, useSports } from './catalog'
+import { CardHeart } from './interactive/CardHeart'
 import styles from '../styles/site.module.css'
 
-type Product = ReturnType<typeof useProductsList>[number]
 type Sport = ReturnType<typeof useSports>[number]
 
-/** A placeholder product with its picture, words and a WhatsApp enquiry. */
-export const ProductTile = ({ product, sport }: { product: Product; sport: string }) => {
-  const { t } = useStorefront()
-  const contact = useContact()
-  const ask = contact.whatsapp(t('site.wa.product', { product: product.name }))
+/** A product from the store's catalogue: its photo, name and price, the wishlist heart, and a way into its page to buy. */
+export const StoreProductCard = ({ product }: { product: Card }) => {
+  const { store, locale, t } = useStorefront()
   return (
     <article className={styles.productCard}>
       <div className={styles.productMedia}>
-        {product.image ? (
-          <ThemeImage src={product.image} alt={product.name} ratio={1} sizes="(min-width: 900px) 25vw, 50vw" className={styles.productImg} />
-        ) : (
-          <div className={styles.productArt}>
-            <Icon name={product.art ?? 'gifts'} className={styles.productArtIcon} />
-          </div>
-        )}
-        <span className={styles.productTag}>{sport}</span>
+        <Link href={product.href} className={styles.productPhotoLink}>
+          {product.photo ? (
+            <Image image={product.photo} alt={product.photo.alt ?? product.name} ratio={1} sizes="(min-width: 900px) 25vw, 50vw" className={styles.productImg} />
+          ) : (
+            <span className={styles.productArt}>
+              <Icon name="box" className={styles.productArtIcon} />
+            </span>
+          )}
+        </Link>
+        {product.badges[0] ? <span className={styles.productTag}>{product.badges[0].label}</span> : null}
+        {product.stock.inStock ? null : <span className={styles.soldOut}>{t('site.card.soldOut')}</span>}
+        <CardHeart productId={product.id} name={product.name} />
       </div>
       <div className={styles.productBody}>
-        <h3 className={styles.productName}>{product.name}</h3>
-        <p className={styles.productDesc}>{product.desc}</p>
-        {ask ? (
-          <Link href={ask} className={styles.enquire}>
-            <Icon name="whatsapp" className={styles.enquireIcon} />
-            <span>{t('site.enquire')}</span>
+        <h3 className={styles.productName}>
+          <Link href={product.href} className={styles.productNameLink}>
+            {product.name}
           </Link>
+        </h3>
+        {product.price ? (
+          <p className={styles.productPrice}>
+            {product.from ? <span className={styles.from}>{t('site.card.from')}</span> : null}
+            <Price money={product.price} compareAt={product.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.priceTag} />
+          </p>
         ) : null}
+        <Link href={product.href} className={styles.buy}>
+          <Icon name="cart" className={styles.enquireIcon} />
+          <span>{product.stock.inStock ? t('site.card.buy') : t('site.card.view')}</span>
+        </Link>
       </div>
     </article>
   )
 }
+
+/** The grid's shape while products load, so nothing jumps when they arrive. */
+export const ProductSkeleton = ({ label }: { label: string }) => (
+  <ul className={styles.productGrid} aria-busy="true" aria-label={label}>
+    {[0, 1, 2, 3].map((n) => (
+      <li key={n}>
+        <div className={styles.skeleton} />
+      </li>
+    ))}
+  </ul>
+)
 
 /** A sport's picture card, linking to its products. */
 export const SportTile = ({ sport }: { sport: Sport }) => (

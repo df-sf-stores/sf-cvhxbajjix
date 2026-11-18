@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, ThemeImage, useLocation, useStorefront } from '@dripfunnel/storefront-core/theme'
+import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, ThemeImage, useCart, useLocation, useStorefront, useWishlist } from '@dripfunnel/storefront-core/theme'
 import { Icon, useSports } from './catalog'
 import { SiteMenu } from './interactive/SiteMenu'
 import { useContact } from './site'
@@ -12,6 +12,8 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   const contact = useContact()
   const sports = useSports()
   const { path } = useLocation()
+  const { count } = useCart()
+  const { count: wished } = useWishlist()
   const links = [
     { href: '/', label: t('site.nav.home') },
     { href: '/about/', label: t('site.nav.about') },
@@ -20,6 +22,16 @@ export const Layout = ({ children }: { children: ReactNode }) => {
     { href: '/team-orders/', label: t('site.nav.team') },
     { href: '/gallery/', label: t('site.nav.gallery') },
     { href: '/contact/', label: t('site.nav.contact') },
+  ]
+  const help = [
+    { href: '/collections/all/', label: t('site.footer.allProducts') },
+    { href: '/account/', label: t('common.tools.account') },
+    { href: '/account/orders/', label: t('site.footer.orders') },
+    { href: '/cart/', label: t('common.tools.cart') },
+    { href: '/policies/shipping/', label: t('common.footer.shipping') },
+    { href: '/policies/returns/', label: t('common.footer.returns') },
+    { href: '/policies/privacy/', label: t('common.footer.privacy') },
+    { href: '/policies/terms/', label: t('common.footer.terms') },
   ]
   const mail = contact.mail(t('site.mail.subject', { store: store.name }), '')
   return (
@@ -69,18 +81,28 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               <Icon name="search" className={styles.icon} />
               <span className={styles.hidden}>{t('site.nav.search')}</span>
             </Link>
-            {contact.hello ? (
-              <>
-                <Link href={contact.hello} className={`${styles.iconButton} ${styles.waIconOnly}`}>
-                  <Icon name="whatsapp" className={styles.icon} />
-                  <span className={styles.hidden}>{t('site.nav.whatsapp')}</span>
-                </Link>
-                <Link href={contact.hello} className={`${styles.btn} ${styles.btnGreen} ${styles.waHeader}`}>
-                  <Icon name="whatsapp" className={styles.btnIcon} />
-                  <span>{t('site.nav.whatsapp')}</span>
-                </Link>
-              </>
-            ) : null}
+            <Link href="/account/" className={`${styles.iconButton} ${styles.hideXs}`}>
+              <Icon name="user" className={styles.icon} />
+              <span className={styles.hidden}>{t('common.tools.account')}</span>
+            </Link>
+            <Link href="/account/wishlist/" className={styles.iconButton}>
+              <Icon name="heart" className={styles.icon} />
+              <span className={styles.hidden}>{wished > 0 ? t('common.tools.wishlistCount', { count: wished }) : t('common.tools.wishlist')}</span>
+              {wished > 0 ? (
+                <span className={styles.toolCount} aria-hidden="true">
+                  {wished}
+                </span>
+              ) : null}
+            </Link>
+            <Link href="/cart/" className={styles.iconButton}>
+              <Icon name="cart" className={styles.icon} />
+              <span className={styles.hidden}>{count > 0 ? t('common.tools.cartCount', { count }) : t('common.tools.cart')}</span>
+              {count > 0 ? (
+                <span className={styles.toolCount} aria-hidden="true">
+                  {count}
+                </span>
+              ) : null}
+            </Link>
           </div>
         </div>
       </header>
@@ -141,6 +163,18 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               </div>
             </div>
             <div>
+              <h2 className={styles.footerTitle}>{t('site.footer.help')}</h2>
+              <ul className={styles.footerLinks}>
+                {help.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className={styles.footerLink}>
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
               <h2 className={styles.footerTitle}>{t('site.footer.contact')}</h2>
               <Link href={t('site.links.google')} className={styles.footerContact}>
                 <Icon name="pin" className={styles.footerIcon} />
@@ -172,12 +206,6 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
       </footer>
-      {contact.hello ? (
-        <Link href={contact.hello} className={styles.floatWa}>
-          <Icon name="whatsapp" className={styles.floatIcon} />
-          <span className={styles.hidden}>{t('site.float.whatsapp')}</span>
-        </Link>
-      ) : null}
       {contact.call ? (
         <Link href={contact.call} className={styles.floatCall}>
           <Icon name="phone" className={styles.floatIcon} />

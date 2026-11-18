@@ -5,7 +5,6 @@
   "phone": "+{country} {national}",
   "address": "12-2-12/1, Upstairs of Moti Jewellers, Main Road, Ramachandrapuram, Andhra Pradesh",
   "placeholder": "Placeholder – to be replaced",
-  "enquire": "Enquire on WhatsApp",
   "links": {
     "whatsapp": "https://wa.me/{number}?text={text}",
     "tel": "tel:+{number}",
@@ -14,8 +13,7 @@
     "map": "https://www.google.com/maps/search/?api=1&query=Moti+Jewellers+Main+Road+Ramachandrapuram+Andhra+Pradesh"
   },
   "wa": {
-    "hello": "Hi {store}, I'd like to know more about your products.",
-    "product": "Hi, I'm interested in {product}."
+    "hello": "Hi {store}, I'd like to know more about your products."
   },
   "mail": {
     "subject": "Enquiry for {store}"
@@ -38,10 +36,6 @@
     "search": "Search",
     "whatsapp": "WhatsApp Us"
   },
-  "float": {
-    "whatsapp": "Chat with us on WhatsApp",
-    "call": "Call the store"
-  },
   "footer": {
     "about": "Authentic sports equipment, sportswear, footwear and gifts under one roof in Ramachandrapuram, since 2015.",
     "quick": "Quick links",
@@ -49,6 +43,18 @@
     "contact": "Contact us",
     "google": "Find us on Google",
     "gst": "GSTIN: 37AAEHH4010B1Z0",
-    "copyright": "© 2026 {store}. All Rights Reserved."
+    "copyright": "© 2026 {store}. All Rights Reserved.",
+    "help": "Shop & help",
+    "allProducts": "All products",
+    "orders": "Track my orders"
+  },
+  "card": {
+    "soldOut": "Sold out",
+    "from": "From",
+    "buy": "Buy now",
+    "view": "View product"
+  },
+  "float": {
+    "call": "Call the store"
   }
 }
