@@ -55,6 +55,9 @@
     "view": "View product"
   },
   "float": {
-    "call": "Call the store"
+    "call": "Call the store",
+    "whatsapp": "Chat with us on WhatsApp",
+    "chat": "Chat with us",
+    "top": "Back to top"
   }
 }

@@ -33,6 +33,7 @@ export type IconName =
   | 'google'
   | 'search'
   | 'arrow'
+  | 'up'
   | 'jersey'
   | 'box'
   | 'flag'
@@ -205,6 +206,7 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  up: <path d="M12 19V5M6 11l6-6 6 6" />,
   box: (
     <>
       <path d="M3.5 7.5L12 3.5l8.5 4v9L12 20.5l-8.5-4z" />

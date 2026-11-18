@@ -14,7 +14,8 @@ const config: NextConfig = {
   // `*.dev.ts` files exist only under next dev: the theme's images' route (src/app/theme-media, #1405).
   pageExtensions: dev ? ['dev.ts', 'tsx', 'ts', 'jsx', 'js'] : ['tsx', 'ts', 'jsx', 'js'],
   // A theme's CSS url(<asset id>) and url(media/<name>), which a build's bundler maps itself (storefront ARCHITECTURE §3.4).
-  ...(dev && { turbopack: { rules: { '*.module.css': { loaders: ['./asset-url-loader.mjs'], as: '*.module.css' } } } }),
+  // root: pin the workspace root here, not the stray lockfile in the user's home folder.
+  ...(dev && { turbopack: { root: process.cwd(), rules: { '*.module.css': { loaders: ['./asset-url-loader.mjs'], as: '*.module.css' } } } }),
   ...(dev &&
     shopApiProxy && {
       async rewrites() {

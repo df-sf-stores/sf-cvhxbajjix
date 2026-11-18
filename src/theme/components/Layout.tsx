@@ -36,7 +36,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   ]
   const mail = contact.mail(t('site.mail.subject', { store: store.name }), '')
   return (
-    <div className={styles.shell}>
+    <div className={styles.shell} id="top">
       {mode === 'live' ? null : <PreviewBanner t={t} className={styles.preview} />}
       <div className={styles.topbar}>
         <div className={`${styles.container} ${styles.topInner}`}>
@@ -221,6 +221,21 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           </div>
         </div>
       </footer>
+      <div className={styles.floatStack}>
+        <Link href="#top" className={styles.floatTop}>
+          <Icon name="up" className={styles.floatTopIcon} />
+          <span className={styles.hidden}>{t('site.float.top')}</span>
+        </Link>
+        {contact.hello ? (
+          <Link href={contact.hello} className={styles.floatWa}>
+            <span className={styles.floatWaLabel} aria-hidden="true">
+              {t('site.float.chat')}
+            </span>
+            <Icon name="whatsapp" className={styles.floatIcon} />
+            <span className={styles.hidden}>{t('site.float.whatsapp')}</span>
+          </Link>
+        ) : null}
+      </div>
       {contact.call ? (
         <Link href={contact.call} className={styles.floatCall}>
           <Icon name="phone" className={styles.floatIcon} />
