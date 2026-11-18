@@ -1200,6 +1200,11 @@
   font-weight: 800;
 }
 
+.quoteSource {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 /* ---------- Instagram ---------- */
 
 .insta {

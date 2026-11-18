@@ -117,22 +117,23 @@
     }
   },
   "reviews": {
-    "eyebrow": "Testimonials",
+    "eyebrow": "Google Reviews",
     "title": "What our customers say",
-    "lead": "Real reviews from our customers will appear here.",
+    "lead": "Real reviews from our customers on Google.",
     "google": "See our Google Reviews",
     "one": {
-      "text": "Placeholder review – a short quote from a customer about the products and service will go here.",
-      "name": "Customer name"
+      "text": "Very friendly and adorable price..... kind in response and respect every customer with love and affection.... thanks to Hitesh ji",
+      "name": "Gandhi Lal"
     },
     "two": {
-      "text": "Placeholder review – a short quote from a school or team coach about a bulk order will go here.",
-      "name": "Coach name"
+      "text": "Unique Yonex collections and Good customer service. Highly recommended.",
+      "name": "Gowri Balaji"
     },
     "three": {
-      "text": "Placeholder review – a short quote from a player about the advice they received will go here.",
-      "name": "Player name"
-    }
+      "text": "Super I brought a nice cricket bat ss",
+      "name": "V Udaya Bhaskara Rao"
+    },
+    "source": "Google review"
   },
   "insta": {
     "eyebrow": "Instagram",

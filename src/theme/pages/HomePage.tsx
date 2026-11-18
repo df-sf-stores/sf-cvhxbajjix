@@ -218,7 +218,7 @@ export const HomePage = () => {
                     <span>
                       <span className={styles.quoteName}>{r.name}</span>
                       <br />
-                      <span className={styles.placeholder}>{t('site.placeholder')}</span>
+                      <span className={styles.quoteSource}>{t('home.reviews.source')}</span>
                     </span>
                   </figcaption>
                 </figure>
