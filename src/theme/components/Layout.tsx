@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, ThemeImage, useCart, useLocation, useStorefront, useWishlist } from '@dripfunnel/storefront-core/theme'
 import { Icon, useSports } from './catalog'
+import { MenuSearch } from './interactive/MenuSearch'
 import { SiteMenu } from './interactive/SiteMenu'
 import { useContact } from './site'
 import styles from '../styles/site.module.css'
@@ -68,6 +69,14 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             <ThemeImage src="hitesh-logo.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={3} sizes="220px" className={styles.logo} />
           </Link>
           <SiteMenu label={t('site.nav.menu')} close={t('site.nav.close')}>
+            <div className={styles.menuTop}>
+              <MenuSearch className={styles.menuSearch} />
+              <Link href="/account/wishlist/" className={same(path, '/account/wishlist/') ? `${styles.navLink} ${styles.navActive} ${styles.menuWish}` : `${styles.navLink} ${styles.menuWish}`}>
+                <Icon name="heart" className={styles.icon} />
+                <span>{t('common.tools.wishlist')}</span>
+                {wished > 0 ? <span className={styles.menuCount}>{wished}</span> : null}
+              </Link>
+            </div>
             <nav className={styles.nav} aria-label={t('site.nav.label')}>
               {links.map((l) => (
                 <Link key={l.href} href={l.href} className={same(path, l.href) ? `${styles.navLink} ${styles.navActive}` : styles.navLink}>
@@ -77,15 +86,15 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             </nav>
           </SiteMenu>
           <div className={styles.headerActions}>
-            <Link href="/search/" className={styles.iconButton}>
+            <Link href="/search/" className={`${styles.iconButton} ${styles.hideMobile}`}>
               <Icon name="search" className={styles.icon} />
               <span className={styles.hidden}>{t('site.nav.search')}</span>
             </Link>
-            <Link href="/account/" className={`${styles.iconButton} ${styles.hideXs}`}>
+            <Link href="/account/" className={styles.iconButton}>
               <Icon name="user" className={styles.icon} />
               <span className={styles.hidden}>{t('common.tools.account')}</span>
             </Link>
-            <Link href="/account/wishlist/" className={styles.iconButton}>
+            <Link href="/account/wishlist/" className={`${styles.iconButton} ${styles.hideMobile}`}>
               <Icon name="heart" className={styles.icon} />
               <span className={styles.hidden}>{wished > 0 ? t('common.tools.wishlistCount', { count: wished }) : t('common.tools.wishlist')}</span>
               {wished > 0 ? (
@@ -117,6 +126,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
                 <ThemeImage src="hitesh-logo.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={3} sizes="180px" className={styles.footerLogo} />
               </span>
               <p className={styles.footerText}>{t('site.footer.about')}</p>
+              <p className={styles.gst}>{t('site.footer.gst')}</p>
               <div className={styles.social}>
                 {contact.instagram ? (
                   <Link href={contact.instagram} className={styles.socialLink}>
@@ -194,14 +204,19 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               ) : null}
             </div>
           </div>
-          <div className={styles.footerBase}>
-            <div className={styles.footerMeta}>
-              <p className={styles.gst}>{t('site.footer.gst')}</p>
-              <p className={styles.footerText}>{t('site.footer.copyright', { store: store.name })}</p>
-            </div>
-            <div className={styles.footerMeta}>
+        </div>
+        <div className={styles.bottomBar}>
+          <div className={`${styles.container} ${styles.baseInner}`}>
+            <p className={styles.copyright}>{t('site.footer.copyright', { store: store.name })}</p>
+            <div className={styles.baseRight}>
               <ConsentSettingsButton t={t} className={styles.cookies} />
-              <PoweredBy brand={poweredBy} t={t} className={styles.powered} />
+              <span className={styles.divider} aria-hidden="true" />
+              <span className={styles.poweredGroup}>
+                {poweredBy ? <PoweredBy brand={poweredBy} t={t} className={styles.powered} /> : <span className={styles.powered}>{t('common.poweredBy')}</span>}
+                <Link href={t('common.poweredUrl')} className={styles.brandLink}>
+                  <ThemeImage src="dripfunnel-white-logo.png" alt={t('common.poweredLogo')} ratio={2077 / 369} sizes="104px" className={styles.brandLogo} />
+                </Link>
+              </span>
             </div>
           </div>
         </div>

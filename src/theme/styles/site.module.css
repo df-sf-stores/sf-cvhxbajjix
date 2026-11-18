@@ -1865,7 +1865,7 @@
 /* ---------- Footer ---------- */
 
 .footer {
-  padding: 48px 0 96px;
+  padding: 48px 0 0;
   background: var(--navy);
   color: #c3cde3;
   font-size: 14px;
@@ -1985,20 +1985,8 @@
 }
 
 .footerBase {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 34px;
-  padding-top: 20px;
-  border-top: 1px solid #24396b;
-}
-
-.footerMeta {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  margin-top: 30px;
+  padding-bottom: 20px;
 }
 
 .gst {
@@ -2008,23 +1996,112 @@
   letter-spacing: 0.04em;
 }
 
+/* ---------- Footer bottom bar (inside the footer, so it shares its background) ---------- */
+
+.bottomBar {
+  padding-bottom: 84px;
+  border-top: 1px solid rgb(255 255 255 / 8%);
+}
+
+/* Height = padding-block x 2 + 24px content. */
+.baseInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 16px;
+  padding-block: 8px;
+  color: rgb(248 250 252 / 70%);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+}
+
+.copyright {
+  margin: 0;
+  color: rgb(248 250 252 / 70%);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.baseRight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
 .cookies {
   display: block;
-  --df-sealed-color: #fff;
+  --df-sealed-color: rgb(248 250 252 / 70%);
 }
 
 .cookies::part(button) {
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid #2c4580;
-  border-radius: 999px;
-  background: transparent;
-  color: #fff;
+  height: 24px;
+  min-height: 24px;
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: rgb(248 250 252 / 70%);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.cookies::part(button):hover,
+.cookies::part(button):focus-visible {
+  color: #ff6633;
+}
+
+.divider {
+  display: block;
+  width: 1px;
+  height: 24px;
+  background: rgb(248 250 252 / 35%);
+}
+
+.poweredGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .powered {
+  display: inline-block;
+  color: rgb(248 250 252 / 70%);
+  font-size: 12px;
+  font-weight: 600;
+  --df-sealed-color: rgb(248 250 252 / 70%);
+  --df-sealed-muted: rgb(248 250 252 / 70%);
+  --df-sealed-size: 12px;
+}
+
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.brandLink:hover,
+.brandLink:focus-visible {
+  opacity: 1;
+}
+
+.brandLink:focus-visible {
+  outline: 2px solid #ff6633;
+  outline-offset: 2px;
+}
+
+.brandLogo {
   display: block;
-  --df-sealed-muted: #c3cde3;
+  width: 104px;
+  height: auto;
 }
 
 .consent {
@@ -2249,6 +2326,45 @@
   display: none;
 }
 
+/* Phones: search and wishlist live at the top of the menu, not in the header bar. */
+.headerActions .hideMobile {
+  display: none;
+}
+
+.menuTop {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 0 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.menuSearch {
+  max-width: none;
+}
+
+.menuWish {
+  gap: 10px;
+}
+
+.menuCount {
+  display: inline-flex;
+  min-width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
 /* ---------- Motion ---------- */
 
 @keyframes rise {
@@ -2295,6 +2411,16 @@
 @media (min-width: 640px) {
   .container {
     padding: 0 24px;
+  }
+
+  .baseInner {
+    flex-direction: row;
+    padding-block: 3px;
+    text-align: left;
+  }
+
+  .baseRight {
+    flex-wrap: nowrap;
   }
 
   .headerActions .hideXs {
@@ -2399,6 +2525,14 @@
     order: 0;
   }
 
+  .headerActions .hideMobile {
+    display: inline-flex;
+  }
+
+  .menuTop {
+    display: none;
+  }
+
   .navPanel,
   .navPanelOpen {
     display: block;
@@ -2431,6 +2565,10 @@
 
   .floatCall {
     display: none;
+  }
+
+  .bottomBar {
+    padding-bottom: 0;
   }
 
   .section,
@@ -2539,7 +2677,7 @@
   }
 
   .footer {
-    padding: 64px 0 34px;
+    padding: 64px 0 0;
   }
 
   .footerGrid {
