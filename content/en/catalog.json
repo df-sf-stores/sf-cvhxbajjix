@@ -1,0 +1,33 @@
+{
+  "sports": {
+    "cricket": { "name": "Cricket", "blurb": "Bats, balls, pads, gloves, helmets and kit bags." },
+    "football": { "name": "Football", "blurb": "Match and training balls, studs, shin guards and goalkeeper gear." },
+    "badminton": { "name": "Badminton", "blurb": "Rackets, shuttlecocks, strings, grips and court shoes." },
+    "tennis": { "name": "Tennis", "blurb": "Rackets, balls, strings and accessories for every level." },
+    "swimming": { "name": "Swimming", "blurb": "Goggles, caps, swimwear and training aids." },
+    "gym": { "name": "Gym & Fitness", "blurb": "Dumbbells, mats, ropes, resistance bands and home-gym gear." },
+    "footwear": { "name": "Footwear", "blurb": "Running, training, court and football shoes." },
+    "apparel": { "name": "Sportswear", "tab": "Apparel", "blurb": "Jerseys, T-shirts, track pants, shorts and team kits." },
+    "gifts": { "name": "Gifts & Trophies", "blurb": "Trophies, medals, mementos and sporty gifts." }
+  },
+  "products": {
+    "bat": { "name": "Cricket Bat", "desc": "Willow bats in a range of sizes and weights for practice and matches." },
+    "ball": { "name": "Leather Cricket Ball", "desc": "Hand-stitched leather balls for nets and match play." },
+    "football": { "name": "Match Football", "desc": "Durable footballs for turf, grass and practice sessions." },
+    "training": { "name": "Training Football", "desc": "Hard-wearing balls for drills, coaching and academy use." },
+    "racket": { "name": "Badminton Racket & Shuttles", "desc": "Lightweight rackets with feather and nylon shuttlecocks." },
+    "tennisRacket": { "name": "Tennis Racket", "desc": "Rackets for beginners and regular players, strung and ready." },
+    "tennisBalls": { "name": "Tennis Balls", "desc": "Pressurised balls for hard courts and coaching." },
+    "swim": { "name": "Swimming Goggles & Caps", "desc": "Anti-fog goggles, silicone caps and swim accessories." },
+    "dumbbells": { "name": "Dumbbells", "desc": "Dumbbells and weight plates for home and gym workouts." },
+    "ropes": { "name": "Battle Ropes", "desc": "Heavy ropes for strength and conditioning training." },
+    "mat": { "name": "Yoga & Fitness Mat", "desc": "Cushioned, non-slip mats for yoga, stretching and floor work." },
+    "shoes": { "name": "Running Shoes", "desc": "Cushioned shoes for running, walking and daily training." },
+    "studs": { "name": "Football Studs", "desc": "Football boots with grip for grass and turf grounds." },
+    "jersey": { "name": "Team Jerseys", "desc": "Breathable jerseys, custom names and numbers on request." },
+    "kit": { "name": "Sports T-shirts & Shorts", "desc": "Comfortable training wear for players, schools and clubs." },
+    "trophy": { "name": "Trophies", "desc": "Trophies for tournaments, sports days and school events." },
+    "medal": { "name": "Medals", "desc": "Gold, silver and bronze medals with ribbons for every event." },
+    "hamper": { "name": "Sports Gifts", "desc": "Thoughtful sporty gifts and mementos for every occasion." }
+  }
+}

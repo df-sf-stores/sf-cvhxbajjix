@@ -1,29 +1,130 @@
 {
+  "seo": {
+    "title": "{store} | Best Sports Shop in Ramachandrapuram, Andhra Pradesh",
+    "description": "{store} – Ramachandrapuram's trusted sports store since 2015. Authentic cricket, football, badminton, tennis, swimming & gym gear, sportswear, footwear and gifts at the best prices."
+  },
   "hero": {
-    "eyebrow": "Welcome",
+    "label": "Highlights",
+    "carousel": "carousel",
+    "slide": "slide",
+    "explore": "Explore Products",
+    "chat": "Chat on WhatsApp",
+    "previous": "Previous slide",
+    "next": "Next slide",
+    "one": {
+      "tag": "Sports gear",
+      "title": "Gear Up. Play Better.",
+      "lead": "Authentic sports equipment under one roof.",
+      "alt": "A cricketer playing a shot in whites",
+      "position": "Slide 1 of 3",
+      "goTo": "Show slide 1"
+    },
+    "two": {
+      "tag": "Since 2015",
+      "title": "Trusted by Athletes Since 2015",
+      "lead": "Ramachandrapuram's favourite sports hub.",
+      "alt": "Footballers racing for the ball during a match",
+      "position": "Slide 2 of 3",
+      "goTo": "Show slide 2"
+    },
+    "three": {
+      "tag": "Bulk orders",
+      "title": "Team & School Orders Welcome",
+      "lead": "Bulk kits for schools, colleges & academies.",
+      "alt": "A young football team gathered around their coach",
+      "position": "Slide 3 of 3",
+      "goTo": "Show slide 3"
+    }
+  },
+  "trust": {
+    "label": "Why shop with us",
+    "genuine": "100% Genuine Products",
+    "brands": "Top Brands",
+    "expert": "Expert Guidance",
+    "prices": "Best Prices",
+    "since": "Since 2015"
+  },
+  "sports": {
+    "eyebrow": "Shop by sport",
+    "title": "Everything you need to play",
+    "lead": "Pick your sport and explore the gear we stock – from your first bat to your team's match-day kit."
+  },
+  "about": {
+    "eyebrow": "About us",
     "title": "Welcome to {store}",
-    "lead": "Take a look around and find something you love.",
-    "shop": "Shop now",
-    "story": "Our story",
-    "image": "none",
-    "imageAlt": "A picture of our shop"
+    "body": "A premier retail destination for high-quality sports equipment, athletic apparel, fitness gear and footwear. Founded in 2015 in Ramachandrapuram, we combine top-tier brands, expert product guidance and competitive pricing under one roof.",
+    "pointOne": "Authentic products across all major sports",
+    "pointTwo": "Friendly, expert advice to help you choose right",
+    "pointThree": "Competitive pricing for players, teams and schools",
+    "more": "Read Our Story",
+    "year": "2015",
+    "since": "Since",
+    "imageAlt": "A floodlit cricket stadium at dusk"
   },
-  "story": {
-    "eyebrow": "Our story",
-    "title": "Who we are",
-    "body": "Write a few lines about who you are, what you make and why you started.",
-    "more": "Read more"
+  "products": {
+    "eyebrow": "Featured products",
+    "title": "Popular picks from our store",
+    "lead": "Prices and availability on request – tap Enquire on WhatsApp and we'll get back to you.",
+    "all": "View all products"
   },
-  "signup": {
-    "title": "Keep in touch",
-    "body": "Create an account to follow your orders and check out faster.",
-    "action": "Create an account"
+  "brands": {
+    "eyebrow": "Top brands",
+    "title": "Brands we stock",
+    "lead": "We carry trusted names across every sport. Brand logos coming soon.",
+    "logo": "Brand logo",
+    "note": "Placeholder",
+    "all": "See all brands"
   },
-  "collections": {
-    "title": "Shop by collection"
+  "serve": {
+    "eyebrow": "Who we serve",
+    "title": "Gear for every player",
+    "lead": "Whether you are picking up a racket for the first time or kitting out a whole academy, we are here to help.",
+    "beginners": "Beginners",
+    "amateurs": "Amateur Enthusiasts",
+    "schools": "School & College Teams",
+    "pros": "Professional Athletes",
+    "academies": "Sports Academies"
   },
-  "newest": {
-    "title": "New in",
-    "all": "See all"
+  "why": {
+    "eyebrow": "Why choose us",
+    "title": "Why players choose {store}",
+    "lead": "Trust, genuine products and real relationships with the local sports community.",
+    "genuine": { "title": "100% Genuine Products", "body": "Only authentic equipment and apparel, so you can play with confidence." },
+    "brands": { "title": "Top Brands", "body": "A wide range of trusted brands across cricket, football, racket sports, swimming and fitness." },
+    "expert": { "title": "Expert Guidance", "body": "Not sure which bat, racket or shoe suits you? We'll help you pick the right gear." },
+    "prices": { "title": "Best Prices", "body": "Competitive pricing for individuals, with special support for team and bulk orders." },
+    "teams": { "title": "Team & School Orders", "body": "Kits, jerseys, equipment, trophies and medals for schools, colleges, clubs and academies." },
+    "local": { "title": "Local & Trusted", "body": "A neighbourhood sports store that has grown with Ramachandrapuram since 2015." }
+  },
+  "reviews": {
+    "eyebrow": "Testimonials",
+    "title": "What our customers say",
+    "lead": "Real reviews from our customers will appear here.",
+    "google": "See our Google Reviews",
+    "one": { "text": "Placeholder review – a short quote from a customer about the products and service will go here.", "name": "Customer name" },
+    "two": { "text": "Placeholder review – a short quote from a school or team coach about a bulk order will go here.", "name": "Coach name" },
+    "three": { "text": "Placeholder review – a short quote from a player about the advice they received will go here.", "name": "Player name" }
+  },
+  "insta": {
+    "eyebrow": "Instagram",
+    "title": "Follow us @{handle}",
+    "titlePlain": "Follow us on Instagram",
+    "lead": "New arrivals, store updates and sporting moments from Ramachandrapuram – follow along on Instagram.",
+    "follow": "Follow on Instagram",
+    "one": "A tennis player serving on a clay court",
+    "two": "A badminton player jumping for a smash",
+    "three": "A footballer striking the ball towards goal",
+    "four": "A red leather cricket ball on the grass",
+    "five": "An athlete lifting a barbell",
+    "six": "A volleyball team celebrating a point"
+  },
+  "cta": {
+    "eyebrow": "Visit us",
+    "title": "Visit Our Store Today",
+    "lead": "Come see the range in person, get expert advice and find the right gear for your game – upstairs of Moti Jewellers, Main Road, Ramachandrapuram.",
+    "call": "Call {phone}",
+    "whatsapp": "WhatsApp Us",
+    "directions": "Get Directions",
+    "imageAlt": "A sprinter crouched at the starting line"
   }
 }

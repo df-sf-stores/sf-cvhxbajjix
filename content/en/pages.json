@@ -63,16 +63,97 @@
     "lead": "The shop is closed for now. Please come back later."
   },
   "about": {
-    "title": "About us",
-    "first": "Write a few lines about who you are and why you started.",
-    "second": "Tell shoppers what you make, how you make it and what you care about."
+    "seo": "About Us | {store}",
+    "eyebrow": "About us",
+    "title": "About {store}",
+    "lead": "Ramachandrapuram's sports hub since 2015 – built on trust, genuine products and strong relationships with local athletes.",
+    "companyEyebrow": "About the company",
+    "companyTitle": "Your premier sports destination",
+    "company": "{store} is a premier retail destination dedicated to providing high-quality sports equipment, athletic apparel, fitness gear, and footwear. Catering to beginners, amateur enthusiasts, school/college teams, and professional athletes alike, we offer a wide range of authentic products across major sports such as cricket, football, badminton, tennis, swimming, and gym fitness. Our focus is on combining top-tier brands, expert product guidance, and competitive pricing under one roof.",
+    "imageAlt": "A young football team listening to their coach",
+    "established": "Established",
+    "journeyEyebrow": "Our journey",
+    "journeyTitle": "From a neighbourhood outlet to a sports hub",
+    "journey": "Founded in the year 2015 with a passion for promoting fitness and sporting excellence in Ramachandrapuram, Andhra Pradesh, {store} began as a modest neighborhood sports outlet. Over the years, driven by trust, genuine products, and strong relationships with local athletes, schools, and sports academies, we have grown into a well-recognised sports hub. Today, we continue to expand our product range and serve a loyal community of sports lovers across the region.",
+    "timeline": {
+      "foundedYear": "2015",
+      "foundedTitle": "Founded",
+      "foundedBody": "Founded as a neighbourhood sports outlet in Ramachandrapuram.",
+      "growthYear": "Growth",
+      "growthTitle": "Growing together",
+      "growthBody": "Partnerships with schools & academies across the region.",
+      "todayYear": "Today",
+      "todayTitle": "A trusted name",
+      "todayBody": "A well-recognised sports hub of the region."
+    },
+    "missionEyebrow": "Our mission",
+    "missionTitle": "Helping every player play their best",
+    "mission": "Our mission is to inspire and empower athletes of every age and skill level by making high-performance, authentic sports and fitness gear accessible and affordable. We strive to deliver exceptional customer service, expert advice, and reliable equipment that helps every customer play their best and lead an active, healthy lifestyle.",
+    "founder": {
+      "eyebrow": "Meet the founder",
+      "name": "Sait Hitesh Kumar",
+      "role": "Founder & Owner",
+      "body": "Sait Hitesh Kumar founded {store} in 2015 with a passion for promoting fitness and sporting excellence in Ramachandrapuram. Drop by the store or send a message for advice on the right gear for your game.",
+      "photo": "Founder photo – coming soon",
+      "chat": "Chat with us"
+    },
+    "stats": {
+      "eyebrow": "By the numbers",
+      "title": "Growing with our community",
+      "years": "Years of Service",
+      "yearsValue": "XX+",
+      "customers": "Happy Customers",
+      "customersValue": "XX+",
+      "brands": "Brands",
+      "brandsValue": "XX+",
+      "schools": "Schools & Academies Served",
+      "schoolsValue": "XX+",
+      "note": "To be confirmed"
+    },
+    "explore": "Explore our products"
   },
   "contact": {
+    "seo": "Contact Us | {store}",
+    "eyebrow": "Contact",
     "title": "Get in touch",
-    "lead": "Questions about an order or anything else? Write to us and we will reply.",
+    "lead": "Call, WhatsApp or visit us – we're happy to help you find the right gear.",
     "email": "Email",
     "phone": "Phone",
-    "visit": "Visit"
+    "visit": "Visit the store",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "instagramHandle": "@{handle}",
+    "hours": {
+      "title": "Store timings",
+      "weekdays": "Monday – Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday",
+      "tbc": "To be confirmed",
+      "note": "Timings to be confirmed by the owner"
+    },
+    "map": {
+      "title": "Find us on the map",
+      "directions": "Get Directions",
+      "open": "Open in Google Maps"
+    },
+    "form": {
+      "title": "Send us a message",
+      "name": "Your name",
+      "phone": "Phone number",
+      "email": "Email",
+      "message": "Message",
+      "optional": "(optional)",
+      "nameError": "Please enter your name.",
+      "phoneError": "Please enter a phone number we can reach you on.",
+      "messageError": "Please write your message.",
+      "submit": "Prepare my message",
+      "readyTitle": "Your message is ready to send",
+      "readyBody": "Choose how you'd like to send it. WhatsApp opens with your message filled in.",
+      "sendWhatsapp": "Send on WhatsApp",
+      "sendEmail": "Send by email",
+      "subject": "Website enquiry from {name}",
+      "whatsapp": "Hi {store}, I have an enquiry.\nName: {name}\nPhone: {phone}\nEmail: {email}\nMessage: {message}"
+    }
   },
   "content": {
     "loading": "Loading the page",
@@ -98,5 +179,120 @@
     "by": "by {author}",
     "tags": "Tags",
     "olderFailed": "We couldn't load older posts. Try again."
+  },
+  "shop": {
+    "seo": "Shop by Sport | {store}",
+    "eyebrow": "Shop by sport",
+    "title": "Our products",
+    "lead": "Cricket, football, badminton, tennis, swimming, gym & fitness, footwear, apparel, gifts and trophies – all under one roof.",
+    "notice": "Prices and availability on request – contact us on WhatsApp.",
+    "noticeLink": "Chat now",
+    "filter": "Filter by category",
+    "all": "All",
+    "count": "{count, plural, one {# product} other {# products}} shown"
+  },
+  "brands": {
+    "seo": "Brands | {store}",
+    "eyebrow": "Brands",
+    "title": "Top brands we stock",
+    "lead": "Brand logos will appear here once confirmed. Ask us about any brand you are looking for.",
+    "logo": "Brand logo",
+    "note": "Placeholder – to be replaced",
+    "askTitle": "Looking for a particular brand?",
+    "ask": "Send us a message on WhatsApp and we will tell you what is in stock.",
+    "askAction": "Ask on WhatsApp"
+  },
+  "team": {
+    "seo": "Team & Bulk Orders | {store}",
+    "eyebrow": "Team & bulk orders",
+    "title": "Team & School Orders Welcome",
+    "lead": "Bulk kits, jerseys, equipment, trophies and medals for schools, colleges, academies and clubs.",
+    "chat": "Chat on WhatsApp",
+    "call": "Call the store",
+    "imageAlt": "A young football team gathered around their coach",
+    "forEyebrow": "Who it's for",
+    "forTitle": "Kitting out teams across the region",
+    "forBody": "From sports day supplies to full team kits, we help institutions and teams get the right gear in the right quantities.",
+    "who": {
+      "schools": "Schools",
+      "colleges": "Colleges",
+      "academies": "Sports academies",
+      "clubs": "Clubs & teams"
+    },
+    "services": {
+      "eyebrow": "Our services",
+      "title": "What we supply",
+      "lead": "Tell us what you need and we'll put together the right package.",
+      "kits": {
+        "title": "Team kits",
+        "body": "Complete kits for your squad, from training wear to match day."
+      },
+      "jerseys": {
+        "title": "Jerseys",
+        "body": "Team jerseys in your colours, with names and numbers on request."
+      },
+      "bulk": {
+        "title": "Bulk equipment",
+        "body": "Balls, bats, rackets, nets, cones and training equipment in bulk."
+      },
+      "trophies": {
+        "title": "Trophies & medals",
+        "body": "Trophies, medals and mementos for tournaments and prize days."
+      },
+      "sportsDay": {
+        "title": "Sports-day supplies",
+        "body": "Everything for your sports day, from race equipment to prizes."
+      },
+      "advice": {
+        "title": "Expert guidance",
+        "body": "Help choosing the right gear for every age group and skill level."
+      }
+    },
+    "form": {
+      "eyebrow": "Enquiry",
+      "title": "Send us your requirement",
+      "lead": "Fill in the details and send them to us on WhatsApp or by email – we'll get back to you.",
+      "label": "Team and bulk order enquiry",
+      "name": "Your name",
+      "institution": "Institution / Team name",
+      "phone": "Phone number",
+      "sport": "Sport",
+      "quantity": "Quantity",
+      "message": "Message",
+      "optional": "(optional)",
+      "sportHint": "For example: cricket, football, athletics",
+      "quantityHint": "For example: 25 jerseys, 10 footballs",
+      "messageHint": "Sizes, colours, dates or anything else we should know",
+      "nameError": "Please enter your name.",
+      "phoneError": "Please enter a phone number we can reach you on.",
+      "sportError": "Please tell us the sport.",
+      "submit": "Prepare my enquiry",
+      "readyTitle": "Your enquiry is ready to send",
+      "readyBody": "Choose how you'd like to send it. WhatsApp opens with your details filled in.",
+      "sendWhatsapp": "Send on WhatsApp",
+      "sendEmail": "Send by email",
+      "subject": "Team / bulk order enquiry – {institution}",
+      "whatsapp": "Hi {store}, I'd like to enquire about a team / bulk order.\nName: {name}\nInstitution / Team: {institution}\nPhone: {phone}\nSport: {sport}\nQuantity: {quantity}\nMessage: {message}"
+    }
+  },
+  "gallery": {
+    "seo": "Gallery | {store}",
+    "eyebrow": "Gallery",
+    "title": "Store, products & events",
+    "lead": "A look at the sports we love. Store photos, product displays and event pictures will be added here.",
+    "placeholder": "Placeholder photo",
+    "stadium": "Floodlit cricket ground",
+    "team": "Young footballers with their coach",
+    "gym": "Gym & fitness equipment",
+    "badminton": "Badminton in action",
+    "tennis": "Tennis on a clay court",
+    "swimming": "Swimming training",
+    "volley": "Team celebrations",
+    "goal": "Football under lights",
+    "run": "Running at dawn",
+    "boots": "Football boots",
+    "tt": "Table tennis",
+    "fitness": "Fitness at home",
+    "more": "See more on Instagram"
   }
 }
