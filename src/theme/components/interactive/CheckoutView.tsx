@@ -75,9 +75,15 @@ export const CheckoutView = () => {
       return (
         <Form
           className={styles.form}
-          onSubmit={() =>
-            void c.saveContact({ email: email ?? cart.email ?? account.account?.email ?? '', phone: phone ?? cart.phone ?? account.account?.phone ?? '' }).then((errors) => setContactErrors({ email: problem(errors.email) ?? undefined, phone: (errors.phone === 'invalid' ? t('shop.checkout.phoneInvalid') : problem(errors.phone)) ?? undefined }))
-          }
+          onSubmit={() => {
+            // The mobile number is required here: the theme stops an empty one before anything is sent.
+            const mobile = phone ?? cart.phone ?? account.account?.phone ?? ''
+            if (!mobile.trim()) {
+              setContactErrors({ phone: t('shop.checkout.phoneRequired') })
+              return
+            }
+            void c.saveContact({ email: email ?? cart.email ?? account.account?.email ?? '', phone: mobile }).then((errors) => setContactErrors({ email: problem(errors.email) ?? undefined, phone: (errors.phone === 'invalid' ? t('shop.checkout.phoneInvalid') : problem(errors.phone)) ?? undefined }))
+          }}
         >
           {c.mode === 'live' && account.status === 'signedOut' ? (
             <p className={styles.note}>
@@ -88,7 +94,7 @@ export const CheckoutView = () => {
             </p>
           ) : null}
           <TextField label={t('shop.checkout.email')} type="email" autoComplete="email" value={email ?? cart.email ?? account.account?.email ?? ''} onChange={setEmail} hint={t('shop.checkout.emailHint')} error={contactErrors.email} className={styles.field} />
-          <PhoneField label={t('shop.checkout.phone')} codeLabel={t('shop.checkout.countryCode')} country={store.address?.country ?? c.countries[0] ?? ''} locale={locale} value={phone ?? cart.phone ?? account.account?.phone ?? ''} onChange={setPhone} note={t('shop.checkout.optional')} hint={t('shop.checkout.phoneHint')} error={contactErrors.phone} className={styles.field} groupClassName={styles.phone} />
+          <PhoneField label={t('shop.checkout.phone')} codeLabel={t('shop.checkout.countryCode')} country={store.address?.country ?? c.countries[0] ?? ''} locale={locale} value={phone ?? cart.phone ?? account.account?.phone ?? ''} onChange={setPhone} note={t('shop.checkout.requiredMark')} hint={t('shop.checkout.phoneHint')} error={contactErrors.phone} className={styles.field} groupClassName={styles.phone} />
           <SubmitButton className={shop.primary} disabled={c.busy}>
             {t('shop.checkout.continue')}
           </SubmitButton>
@@ -96,10 +102,22 @@ export const CheckoutView = () => {
       )
     }
     if (id === 'address') {
-      const draft = address ?? addressDraft(cart.shippingAddress, c.countries[0] ?? '')
+      const saved = addressDraft(cart.shippingAddress, c.countries[0] ?? '')
+      // Until the shopper edits it, the delivery phone starts from the contact number; once edited, their own number stays.
+      const draft = address ?? (saved.phone.trim() ? saved : { ...saved, phone: cart.phone ?? account.account?.phone ?? '' })
       return (
-        <Form className={styles.form} onSubmit={() => void c.saveAddress(draft, keepAddress).then(setAddressErrors)}>
-          <AddressFields value={draft} onChange={setAddress} countries={c.countries} errors={addressErrors} t={t} locale={locale} className={styles.fields} fieldClassName={styles.field} phoneClassName={styles.phone} />
+        <Form
+          className={styles.form}
+          onSubmit={() => {
+            // The delivery phone is required: an empty one is stopped here, a malformed one by core's own check.
+            if (!draft.phone.trim()) {
+              setAddressErrors({ phone: 'required' })
+              return
+            }
+            void c.saveAddress(draft, keepAddress).then(setAddressErrors)
+          }}
+        >
+          <AddressFields value={draft} onChange={setAddress} countries={c.countries} errors={addressErrors} t={t} locale={locale} className={styles.addressFields} fieldClassName={styles.field} phoneClassName={styles.phone} />
           {c.canKeepAddress && (
             <Checkbox checked={keepAddress} onChange={setKeepAddress} className={accountStyles.check}>
               {t('shop.checkout.keepAddress')}

@@ -1,32 +1,26 @@
 import { Link, ThemeImage, useHead, useProducts, useStorefront } from '@dripfunnel/storefront-core/theme'
 import { Layout } from '../components/Layout'
-import { ProductSkeleton, SectionHead, SportTile, StoreProductCard } from '../components/Blocks'
+import { BrandLogos, ProductSkeleton, SectionHead, SportTile, StoreProductCard } from '../components/Blocks'
 import { Icon, useSports } from '../components/catalog'
 import { HeroSlider } from '../components/interactive/HeroSlider'
 import { useContact } from '../components/site'
 import styles from '../styles/site.module.css'
 
-const slots = [0, 1, 2, 3, 4, 5, 6, 7]
-
 export const HomePage = () => {
   const { store, t } = useStorefront()
   const contact = useContact()
   const sports = useSports()
-  const featured = useProducts({ sort: 'newest', first: 8 })
+  const catalogue = useProducts({ sort: 'best-selling', first: 8 })
+  const latest = useProducts({ sort: 'newest', first: 12 })
+  const featured = catalogue.products
+  const shown = new Set(featured.map((p) => p.id))
+  const arrivals = catalogue.status === 'ready' ? latest.products.filter((p) => !shown.has(p.id)).slice(0, 4) : []
   useHead({ title: t('home.seo.title', { store: store.name }), description: t('home.seo.description', { store: store.name }) })
   const trust = [
     { icon: 'shield', label: t('home.trust.genuine') },
     { icon: 'medal', label: t('home.trust.brands') },
     { icon: 'chat', label: t('home.trust.expert') },
-    { icon: 'tag', label: t('home.trust.prices') },
-    { icon: 'calendar', label: t('home.trust.since') },
-  ] as const
-  const serve = [
-    { icon: 'beginner', label: t('home.serve.beginners') },
-    { icon: 'heart', label: t('home.serve.amateurs') },
-    { icon: 'school', label: t('home.serve.schools') },
-    { icon: 'athlete', label: t('home.serve.pros') },
-    { icon: 'academy', label: t('home.serve.academies') },
+    { icon: 'cart', label: t('home.trust.secure') },
   ] as const
   const why = [
     { icon: 'shield', title: t('home.why.genuine.title'), body: t('home.why.genuine.body') },
@@ -34,7 +28,7 @@ export const HomePage = () => {
     { icon: 'chat', title: t('home.why.expert.title'), body: t('home.why.expert.body') },
     { icon: 'tag', title: t('home.why.prices.title'), body: t('home.why.prices.body') },
     { icon: 'team', title: t('home.why.teams.title'), body: t('home.why.teams.body') },
-    { icon: 'heart', title: t('home.why.local.title'), body: t('home.why.local.body') },
+    { icon: 'pin', title: t('home.why.local.title'), body: t('home.why.local.body') },
   ] as const
   const reviews = [
     { id: 'one', text: t('home.reviews.one.text'), name: t('home.reviews.one.name') },
@@ -56,9 +50,9 @@ export const HomePage = () => {
       <section className={styles.trust} aria-label={t('home.trust.label')}>
         <div className={styles.container}>
           <ul className={styles.trustList}>
-            {trust.map((item, i) => (
+            {trust.map((item) => (
               <li key={item.icon} className={styles.trustItem}>
-                <span className={i % 2 ? styles.trustIconAlt : styles.trustIcon}>
+                <span className={styles.trustIcon}>
                   <Icon name={item.icon} className={styles.btnIcon} />
                 </span>
                 <span>{item.label}</span>
@@ -68,7 +62,7 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <section className={styles.section}>
+      <section className={styles.sectionWhite} id="categories">
         <div className={styles.container}>
           <SectionHead eyebrow={t('home.sports.eyebrow')} title={t('home.sports.title')} lead={t('home.sports.lead')} />
           <ul className={styles.sportGrid}>
@@ -81,49 +75,14 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <section className={styles.sectionWhite}>
-        <div className={`${styles.container} ${styles.split}`}>
-          <div className={`${styles.splitMedia} ${styles.reveal}`}>
-            <ThemeImage src="about-stadium.webp" alt={t('home.about.imageAlt')} ratio={4 / 3} sizes="(min-width: 900px) 50vw, 100vw" className={styles.splitImg} />
-            <span className={styles.since}>
-              <span className={styles.sinceYear}>{t('home.about.year')}</span>
-              <span className={styles.sinceLabel}>{t('home.about.since')}</span>
-            </span>
-          </div>
-          <div className={`${styles.splitCopy} ${styles.reveal}`}>
-            <p className={styles.eyebrow}>{t('home.about.eyebrow')}</p>
-            <h2 className={styles.h2}>{t('home.about.title', { store: store.name })}</h2>
-            <p className={styles.lead}>{t('home.about.body')}</p>
-            <ul className={styles.checks}>
-              <li className={styles.check}>
-                <Icon name="shield" className={styles.checkIcon} />
-                <span>{t('home.about.pointOne')}</span>
-              </li>
-              <li className={styles.check}>
-                <Icon name="chat" className={styles.checkIcon} />
-                <span>{t('home.about.pointTwo')}</span>
-              </li>
-              <li className={styles.check}>
-                <Icon name="tag" className={styles.checkIcon} />
-                <span>{t('home.about.pointThree')}</span>
-              </li>
-            </ul>
-            <Link href="/about/" className={`${styles.btn} ${styles.btnNavy}`}>
-              <span>{t('home.about.more')}</span>
-              <Icon name="arrow" className={styles.btnIcon} />
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <section className={styles.section}>
         <div className={styles.container}>
           <SectionHead eyebrow={t('home.products.eyebrow')} title={t('home.products.title')} lead={t('home.products.lead')} />
-          {featured.status === 'ready' && featured.products.length === 0 ? (
+          {catalogue.status === 'ready' && featured.length === 0 ? (
             <p className={`${styles.lead} ${styles.centerText}`}>{t('home.products.empty')}</p>
-          ) : featured.status === 'ready' ? (
+          ) : catalogue.status === 'ready' ? (
             <ul className={styles.productGrid}>
-              {featured.products.map((p) => (
+              {featured.map((p) => (
                 <li key={p.id} className={styles.reveal}>
                   <StoreProductCard product={p} />
                 </li>
@@ -133,7 +92,7 @@ export const HomePage = () => {
             <ProductSkeleton label={t('home.products.loading')} />
           )}
           <div className={styles.center}>
-            <Link href="/collections/all/" className={`${styles.btn} ${styles.btnOutline}`}>
+            <Link href="/collections/all/" className={`${styles.btn} ${styles.btnDark}`}>
               <span>{t('home.products.all')}</span>
               <Icon name="arrow" className={styles.btnIcon} />
             </Link>
@@ -141,17 +100,60 @@ export const HomePage = () => {
         </div>
       </section>
 
+      {latest.status === 'ready' && arrivals.length > 0 ? (
+        <section className={styles.sectionWhite}>
+          <div className={styles.container}>
+            <SectionHead eyebrow={t('home.arrivals.eyebrow')} title={t('home.arrivals.title')} lead={t('home.arrivals.lead')} />
+            <ul className={styles.productGrid}>
+              {arrivals.map((p) => (
+                <li key={p.id} className={styles.reveal}>
+                  <StoreProductCard product={p} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      <section className={styles.heritage}>
+        <div className={`${styles.container} ${styles.heritageInner}`}>
+          <div className={`${styles.heritageCopy} ${styles.reveal}`}>
+            <span className={styles.heritageSince}>{t('home.heritage.since')}</span>
+            <h2 className={styles.heritageTitle}>
+              {t('home.heritage.titleStart')} <em>{t('home.heritage.titleEnd')}</em>
+            </h2>
+            <p className={styles.heritageLead}>{t('home.heritage.body', { store: store.name })}</p>
+            <ul className={styles.heritageChecks}>
+              <li className={styles.heritageCheck}>
+                <Icon name="shield" className={styles.heritageCheckIcon} />
+                <span>{t('home.why.genuine.body')}</span>
+              </li>
+              <li className={styles.heritageCheck}>
+                <Icon name="chat" className={styles.heritageCheckIcon} />
+                <span>{t('home.why.expert.body')}</span>
+              </li>
+            </ul>
+            <div className={styles.actions}>
+              <Link href="/collections/all/" className={`${styles.btn} ${styles.btnOrange}`}>
+                <Icon name="cart" className={styles.btnIcon} />
+                <span>{t('home.heritage.shop')}</span>
+              </Link>
+              <Link href="/about/" className={`${styles.btn} ${styles.btnLight}`}>
+                <span>{t('home.heritage.more')}</span>
+                <Icon name="arrow" className={styles.btnIcon} />
+              </Link>
+            </div>
+          </div>
+          <div className={`${styles.heritageMedia} ${styles.reveal}`}>
+            <ThemeImage src="athletes-india.webp" alt={t('home.heritage.imageAlt')} ratio={1460 / 821} sizes="(min-width: 900px) 60vw, 100vw" className={styles.heritageImg} />
+          </div>
+        </div>
+      </section>
+
       <section className={styles.sectionWhite}>
         <div className={styles.container}>
           <SectionHead eyebrow={t('home.brands.eyebrow')} title={t('home.brands.title')} lead={t('home.brands.lead')} />
-          <ul className={styles.brandGrid}>
-            {slots.map((n) => (
-              <li key={n} className={`${styles.brandTile} ${styles.reveal}`}>
-                <span className={styles.brandMark}>{t('home.brands.logo')}</span>
-                <span className={styles.brandNote}>{t('home.brands.note')}</span>
-              </li>
-            ))}
-          </ul>
+          <BrandLogos />
           <div className={styles.center}>
             <Link href="/brands/" className={`${styles.btn} ${styles.btnOutline}`}>
               <span>{t('home.brands.all')}</span>
@@ -161,34 +163,14 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <section className={styles.serve}>
-        <div className={styles.container}>
-          <div className={`${styles.serveHead} ${styles.reveal}`}>
-            <p className={styles.serveEyebrow}>{t('home.serve.eyebrow')}</p>
-            <h2 className={styles.serveTitle}>{t('home.serve.title')}</h2>
-            <p className={styles.serveLead}>{t('home.serve.lead')}</p>
-          </div>
-          <ul className={styles.serveGrid}>
-            {serve.map((s) => (
-              <li key={s.icon} className={`${styles.serveItem} ${styles.reveal}`}>
-                <span className={styles.serveIcon}>
-                  <Icon name={s.icon} className={styles.cardIconSvg} />
-                </span>
-                <h3 className={styles.serveName}>{s.label}</h3>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
       <section className={styles.section}>
         <div className={styles.container}>
           <SectionHead eyebrow={t('home.why.eyebrow')} title={t('home.why.title', { store: store.name })} lead={t('home.why.lead')} />
           <ul className={styles.cardGrid}>
-            {why.map((w, i) => (
+            {why.map((w) => (
               <li key={w.icon} className={styles.reveal}>
                 <div className={styles.card}>
-                  <span className={i % 2 ? styles.cardIconGreen : styles.cardIcon}>
+                  <span className={styles.cardIcon}>
                     <Icon name={w.icon} className={styles.cardIconSvg} />
                   </span>
                   <h3 className={styles.h3}>{w.title}</h3>
@@ -213,7 +195,7 @@ export const HomePage = () => {
                   <blockquote className={styles.quoteText}>{r.text}</blockquote>
                   <figcaption className={styles.quoteWho}>
                     <span className={styles.avatar}>
-                      <Icon name="team" className={styles.btnIcon} />
+                      <Icon name="user" className={styles.btnIcon} />
                     </span>
                     <span>
                       <span className={styles.quoteName}>{r.name}</span>
@@ -226,7 +208,7 @@ export const HomePage = () => {
             ))}
           </ul>
           <div className={styles.center}>
-            <Link href={t('site.links.google')} className={`${styles.btn} ${styles.btnNavy}`}>
+            <Link href={t('site.links.google')} className={`${styles.btn} ${styles.btnDark}`}>
               <Icon name="google" className={styles.btnIcon} />
               <span>{t('home.reviews.google')}</span>
             </Link>
@@ -234,36 +216,30 @@ export const HomePage = () => {
         </div>
       </section>
 
-      <section className={styles.insta}>
-        <div className={`${styles.container} ${styles.instaInner}`}>
-          <div className={`${styles.splitCopy} ${styles.reveal}`}>
-            <p className={styles.eyebrow}>{t('home.insta.eyebrow')}</p>
-            <h2 className={styles.h2}>{contact.handle ? t('home.insta.title', { handle: contact.handle }) : t('home.insta.titlePlain')}</h2>
-            <p className={styles.lead}>{t('home.insta.lead')}</p>
-            {contact.instagram ? (
-              <Link href={contact.instagram} className={`${styles.btn} ${styles.btnOrange}`}>
+      {contact.instagram ? (
+        <section className={styles.insta}>
+          <div className={`${styles.container} ${styles.instaInner}`}>
+            <div className={`${styles.splitCopy} ${styles.reveal}`}>
+              <p className={styles.eyebrow}>{t('home.insta.eyebrow')}</p>
+              <h2 className={styles.h2}>{contact.handle ? t('home.insta.title', { handle: contact.handle }) : t('home.insta.titlePlain')}</h2>
+              <p className={styles.lead}>{t('home.insta.lead')}</p>
+              <Link href={contact.instagram} className={`${styles.btn} ${styles.btnBrand}`}>
                 <Icon name="instagram" className={styles.btnIcon} />
                 <span>{t('home.insta.follow')}</span>
               </Link>
-            ) : null}
-          </div>
-          <ul className={`${styles.instaGrid} ${styles.reveal}`}>
-            {insta.map((p) => (
-              <li key={p.image}>
-                {contact.instagram ? (
+            </div>
+            <ul className={`${styles.instaGrid} ${styles.reveal}`}>
+              {insta.map((p) => (
+                <li key={p.image}>
                   <Link href={contact.instagram} className={styles.instaTile}>
                     <ThemeImage src={p.image} alt={p.alt} ratio={1} sizes="(min-width: 900px) 15vw, 33vw" className={styles.instaImg} />
                   </Link>
-                ) : (
-                  <span className={styles.instaTile}>
-                    <ThemeImage src={p.image} alt={p.alt} ratio={1} sizes="(min-width: 900px) 15vw, 33vw" className={styles.instaImg} />
-                  </span>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
 
       <section className={styles.section}>
         <div className={styles.cta}>
@@ -274,16 +250,16 @@ export const HomePage = () => {
             <p className={styles.ctaLead}>{t('home.cta.lead')}</p>
             <div className={styles.actions}>
               {contact.call ? (
-                <Link href={contact.call} className={`${styles.btn} ${styles.btnOrange}`}>
+                <Link href={contact.call} className={`${styles.btn} ${styles.btnLight}`}>
                   <Icon name="phone" className={styles.btnIcon} />
-                  <span>{t('home.cta.call', { phone: contact.phone })}</span>
+                  <span>{t('home.cta.call')}</span>
                 </Link>
               ) : null}
-              <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnGreen}`}>
+              <Link href="/collections/all/" className={`${styles.btn} ${styles.btnOrange}`}>
                 <Icon name="cart" className={styles.btnIcon} />
                 <span>{t('home.cta.shop')}</span>
               </Link>
-              <Link href={t('site.links.google')} className={`${styles.btn} ${styles.btnLight}`}>
+              <Link href={t('site.links.map')} className={`${styles.btn} ${styles.btnLight}`}>
                 <Icon name="pin" className={styles.btnIcon} />
                 <span>{t('home.cta.directions')}</span>
               </Link>

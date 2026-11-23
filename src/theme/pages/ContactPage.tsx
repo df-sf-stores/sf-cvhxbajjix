@@ -11,11 +11,6 @@ export const ContactPage = () => {
   const contact = useContact()
   useHead({ title: t('pages.contact.seo', { store: store.name }), description: t('pages.contact.lead') })
   const mail = contact.mail(t('site.mail.subject', { store: store.name }), '')
-  const hours = [
-    { id: 'week', day: t('pages.contact.hours.weekdays'), time: t('pages.contact.hours.tbc') },
-    { id: 'sat', day: t('pages.contact.hours.saturday'), time: t('pages.contact.hours.tbc') },
-    { id: 'sun', day: t('pages.contact.hours.sunday'), time: t('pages.contact.hours.tbc') },
-  ]
   return (
     <Layout>
       <PageHero eyebrow={t('pages.contact.eyebrow')} title={t('pages.contact.title')} lead={t('pages.contact.lead')} />
@@ -92,14 +87,12 @@ export const ContactPage = () => {
                 <Icon name="clock" className={styles.btnIcon} /> {t('pages.contact.hours.title')}
               </h2>
               <dl className={styles.hours}>
-                {hours.map((h) => (
-                  <div key={h.id} className={styles.hoursRow}>
-                    <dt className={styles.hoursDay}>{h.day}</dt>
-                    <dd className={styles.hoursTime}>{h.time}</dd>
-                  </div>
-                ))}
+                <div className={styles.hoursRow}>
+                  <dt className={styles.hoursDay}>{t('pages.contact.hours.days')}</dt>
+                  <dd className={styles.hoursOpen}>{t('pages.contact.hours.time')}</dd>
+                </div>
               </dl>
-              <span className={styles.placeholder}>{t('pages.contact.hours.note')}</span>
+              <p className={styles.small}>{t('pages.contact.hours.note')}</p>
             </div>
           </div>
           <div className={styles.prose}>
@@ -110,7 +103,7 @@ export const ContactPage = () => {
               <h2 className={styles.h3}>{t('pages.contact.map.title')}</h2>
               <p className={styles.small}>{t('site.address')}</p>
               <div className={styles.actions}>
-                <Link href={t('site.links.google')} className={`${styles.btn} ${styles.btnOrange}`}>
+                <Link href={t('site.links.google')} className={`${styles.btn} ${styles.btnBrand}`}>
                   <Icon name="pin" className={styles.btnIcon} />
                   <span>{t('pages.contact.map.directions')}</span>
                 </Link>

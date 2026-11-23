@@ -17,37 +17,43 @@
     "sorts": {
       "featured": "Featured",
       "newest": "Newest",
-      "priceLow": "Price, low to high",
-      "priceHigh": "Price, high to low",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
       "name": "Name"
     },
     "price": "Price",
     "loadingMore": "Loading more products…",
     "moreFailed": "More products didn't load. Try again.",
-    "empty": "No products match these filters",
-    "emptyLead": "Remove a filter or clear them all to see more.",
+    "empty": "No products found.",
+    "emptyLead": "Try removing a filter, or clear them all to see every product.",
     "loading": "Loading products",
     "failed": "We couldn't load these products",
     "failedLead": "Check your connection and try again.",
-    "retry": "Try again"
+    "retry": "Try again",
+    "clearAll": "Clear all",
+    "filterTitle": "Filter products",
+    "close": "Close filters",
+    "apply": "{count, plural, one {Show # product} other {Show # products}}",
+    "chip": "{facet}: {value}"
   },
   "collection": {
-    "all": "All products",
-    "allLead": "Everything in the shop.",
+    "all": "Shop All Products",
+    "allLead": "Discover quality sports equipment, apparel and accessories for every game.",
     "loading": "Loading the collection",
     "missing": "We can't find that collection",
     "missingLead": "It may have moved or been taken down.",
     "browse": "Browse all products",
     "empty": "Nothing here yet",
     "emptyLead": "There are no products to show here yet. Come back soon.",
-    "home": "Go to the home page"
+    "home": "Go to the home page",
+    "nav": "Collections"
   },
   "search": {
     "title": "Search the shop",
     "lead": "Find a product by its name or type.",
     "results": "Results for \"{query}\"",
     "label": "Search products",
-    "placeholder": "What are you looking for?",
+    "placeholder": "Search products...",
     "button": "Search",
     "none": "No products match \"{query}\"",
     "noneLead": "Check the spelling, try a shorter word, or browse a collection."
@@ -184,7 +190,9 @@
     "giftCardRefused": "That number doesn't match a gift card. Check it and try again.",
     "giftCardTooMany": "Too many tries. Wait a few minutes and try again.",
     "giftCardPreview": "Gift cards can't be used on a preview of the shop; they work on the live shop.",
-    "giftCardFailed": "We couldn't check that gift card. Try again in a minute."
+    "giftCardFailed": "We couldn't check that gift card. Try again in a minute.",
+    "phoneRequired": "Enter your mobile number – the courier uses it to reach you.",
+    "requiredMark": "*"
   },
   "order": {
     "loading": "Loading your order",

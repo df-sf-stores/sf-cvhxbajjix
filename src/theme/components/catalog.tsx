@@ -235,7 +235,21 @@ export const Icon = ({ name, className }: { name: IconName; className?: string }
   </svg>
 )
 
-export type SportId = 'cricket' | 'football' | 'badminton' | 'tennis' | 'swimming' | 'gym' | 'footwear' | 'apparel' | 'gifts'
+/** The brands in the store's own catalogue, read from the first word of each product's name, most stocked first. */
+export const brandsOf = (products: readonly { name: string }[]): { name: string; count: number }[] => {
+  const seen = new Map<string, { name: string; count: number }>()
+  for (const p of products) {
+    const word = (p.name.trim().split(/\s+/)[0] ?? '').replace(/[^\p{L}\p{N}&-]/gu, '')
+    if (word.length < 2) continue
+    const key = word.toLowerCase()
+    const hit = seen.get(key)
+    if (hit) hit.count += 1
+    else seen.set(key, { name: word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(), count: 1 })
+  }
+  return [...seen.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+}
+
+export type SportId ='cricket' | 'football' | 'badminton' | 'tennis' | 'swimming' | 'gym' | 'footwear' | 'apparel' | 'gifts'
 
 /** The sports and categories the store sells, in the order the site shows them. */
 export const useSports = () => {

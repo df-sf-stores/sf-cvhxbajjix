@@ -11,18 +11,18 @@
     "previous": "Previous slide",
     "next": "Next slide",
     "one": {
-      "tag": "Sports gear",
-      "title": "Gear Up. Play Better.",
-      "lead": "Authentic sports equipment under one roof.",
-      "alt": "A cricketer playing a shot in whites",
+      "tag": "Badminton collection",
+      "title": "Gear Up. Play Harder. Win Bigger.",
+      "lead": "Discover premium badminton racquets, shoes and accessories designed for every player.",
+      "alt": "A badminton player leaping to smash a shuttle on an indoor court",
       "position": "Slide 1 of 3",
       "goTo": "Show slide 1"
     },
     "two": {
-      "tag": "Since 2015",
-      "title": "Trusted by Athletes Since 2015",
-      "lead": "Ramachandrapuram's favourite sports hub.",
-      "alt": "Footballers racing for the ball during a match",
+      "tag": "Sports & fitness gear",
+      "title": "Play Better. Perform Stronger.",
+      "lead": "Discover quality sports equipment and accessories for every game.",
+      "alt": "A basketball, footballs, rugby balls, golf balls, a baseball and a tennis ball on stadium grass under floodlights",
       "position": "Slide 2 of 3",
       "goTo": "Show slide 2"
     },
@@ -34,58 +34,41 @@
       "position": "Slide 3 of 3",
       "goTo": "Show slide 3"
     },
-    "team": "Team Orders"
+    "team": "Team Orders",
+    "racquets": "Shop Racquets",
+    "allSports": "Explore All Sports",
+    "findGame": "Find Your Game"
   },
   "trust": {
     "label": "Why shop with us",
     "genuine": "100% Genuine Products",
-    "brands": "Top Brands",
+    "brands": "Trusted Brands",
     "expert": "Expert Guidance",
-    "prices": "Best Prices",
-    "since": "Since 2015"
+    "secure": "Secure Shopping"
   },
   "sports": {
     "eyebrow": "Shop by sport",
-    "title": "Everything you need to play",
-    "lead": "Pick your sport and explore the gear we stock – from your first bat to your team's match-day kit."
+    "title": "Find your game",
+    "lead": "Everything you need to play your best."
   },
-  "about": {
-    "eyebrow": "About us",
-    "title": "Welcome to {store}",
-    "body": "A premier retail destination for high-quality sports equipment, athletic apparel, fitness gear and footwear. Founded in 2015 in Ramachandrapuram, we combine top-tier brands, expert product guidance and competitive pricing under one roof.",
-    "pointOne": "Authentic products across all major sports",
-    "pointTwo": "Friendly, expert advice to help you choose right",
-    "pointThree": "Competitive pricing for players, teams and schools",
-    "more": "Read Our Story",
-    "year": "2015",
-    "since": "Since",
-    "imageAlt": "A floodlit cricket stadium at dusk"
+  "arrivals": {
+    "eyebrow": "Just in",
+    "title": "New arrivals",
+    "lead": "The latest additions to our shelves – fresh stock from the brands players trust."
   },
   "products": {
-    "eyebrow": "Featured products",
-    "title": "Fresh in our store",
+    "eyebrow": "Shop the range",
+    "title": "Top picks from our store",
     "lead": "Genuine gear with secure online checkout – add to cart and order in minutes.",
     "all": "View all products",
     "loading": "Loading products",
     "empty": "New products are being added – check back soon."
   },
   "brands": {
-    "eyebrow": "Top brands",
-    "title": "Brands we stock",
-    "lead": "We carry trusted names across every sport. Brand logos coming soon.",
-    "logo": "Brand logo",
-    "note": "Placeholder",
+    "eyebrow": "Brands we offer",
+    "title": "Our trusted brands",
+    "lead": "Shop products from leading sports brands.",
     "all": "See all brands"
-  },
-  "serve": {
-    "eyebrow": "Who we serve",
-    "title": "Gear for every player",
-    "lead": "Whether you are picking up a racket for the first time or kitting out a whole academy, we are here to help.",
-    "beginners": "Beginners",
-    "amateurs": "Amateur Enthusiasts",
-    "schools": "School & College Teams",
-    "pros": "Professional Athletes",
-    "academies": "Sports Academies"
   },
   "why": {
     "eyebrow": "Why choose us",
@@ -96,7 +79,7 @@
       "body": "Only authentic equipment and apparel, so you can play with confidence."
     },
     "brands": {
-      "title": "Top Brands",
+      "title": "Trusted Brands",
       "body": "A wide range of trusted brands across cricket, football, racket sports, swimming and fitness."
     },
     "expert": {
@@ -104,7 +87,7 @@
       "body": "Not sure which bat, racket or shoe suits you? We'll help you pick the right gear."
     },
     "prices": {
-      "title": "Best Prices",
+      "title": "Competitive Prices",
       "body": "Competitive pricing for individuals, with special support for team and bulk orders."
     },
     "teams": {
@@ -112,7 +95,7 @@
       "body": "Kits, jerseys, equipment, trophies and medals for schools, colleges, clubs and academies."
     },
     "local": {
-      "title": "Local & Trusted",
+      "title": "Local & Trusted Store",
       "body": "A neighbourhood sports store that has grown with Ramachandrapuram since 2015."
     }
   },
@@ -151,10 +134,20 @@
   "cta": {
     "eyebrow": "Visit us",
     "title": "Visit Our Store Today",
-    "lead": "Come see the range in person, get expert advice and find the right gear for your game – upstairs of Moti Jewellers, Main Road, Ramachandrapuram.",
-    "call": "Call {phone}",
+    "lead": "Find the right equipment for your game. Discover quality products and get expert assistance – upstairs of Moti Jewellers, Main Road, Ramachandrapuram.",
+    "call": "Call Us",
     "directions": "Get Directions",
     "imageAlt": "A sprinter crouched at the starting line",
     "shop": "Shop Online"
+  },
+  "heritage": {
+    "eyebrow": "Our story",
+    "titleStart": "Trusted by athletes.",
+    "titleEnd": "Built for every player.",
+    "body": "Your destination for quality sports equipment, trusted brands, and expert guidance. From everyday training to competitive performance, {store} brings quality sporting essentials to every player.",
+    "since": "Since 2015 · Ramachandrapuram",
+    "imageAlt": "A collage of Indian athletes from boxing, wrestling, badminton, tennis, shooting, hockey, javelin and table tennis",
+    "shop": "Shop Now",
+    "more": "Read Our Story"
   }
 }

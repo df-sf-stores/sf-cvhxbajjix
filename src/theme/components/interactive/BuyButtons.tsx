@@ -62,7 +62,7 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
         </p>
       ) : null}
       {inCart ? (
-        <Link href="/cart/" className={shop.primary} ref={goToCart}>
+        <Link href="/cart/" className={shop.cta} ref={goToCart}>
           {t('shop.product.goToCart')}
         </Link>
       ) : (
@@ -71,7 +71,7 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
           disabled={!buyable}
           gift={isGift ? gift : null}
           describedBy={waitsForRecipient ? why : undefined}
-          className={shop.primary}
+          className={shop.cta}
           onDone={(worked) => {
             setFailed(!worked)
             if (!worked) return
@@ -83,7 +83,7 @@ export const BuyButtons = ({ page }: { page: ProductPage }) => {
         </AddToCart>
       )}
       {isGift ? null : (
-        <BuyNow versionId={version?.id ?? null} disabled={!buyable} className={shop.secondary} onDone={(bought) => setFailed(!bought)}>
+        <BuyNow versionId={version?.id ?? null} disabled={!buyable} className={shop.ctaOutline} onDone={(bought) => setFailed(!bought)}>
           {t('shop.product.buyNow')}
         </BuyNow>
       )}

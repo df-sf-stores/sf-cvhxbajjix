@@ -1,6 +1,7 @@
 {
   "brand": {
-    "logoAlt": "{store} logo"
+    "logoAlt": "{store} logo",
+    "tag": "Sports & Fitness · Since 2015"
   },
   "phone": "+{country} {national}",
   "address": "12-2-12/1, Upstairs of Moti Jewellers, Main Road, Ramachandrapuram, Andhra Pradesh",
@@ -31,13 +32,13 @@
     "shop": "Shop by Sport",
     "brands": "Brands",
     "team": "Team Orders",
-    "gallery": "Gallery",
     "contact": "Contact",
     "search": "Search",
-    "whatsapp": "WhatsApp Us"
+    "whatsapp": "WhatsApp Us",
+    "all": "Shop All"
   },
   "footer": {
-    "about": "Authentic sports equipment, sportswear, footwear and gifts under one roof in Ramachandrapuram, since 2015.",
+    "about": "Authentic sports equipment, fitness essentials, sportswear, footwear and gifts from trusted brands – with expert guidance, in Ramachandrapuram since 2015.",
     "quick": "Quick links",
     "sports": "Sport categories",
     "contact": "Contact us",
@@ -52,7 +53,9 @@
     "soldOut": "Sold out",
     "from": "From",
     "buy": "Buy now",
-    "view": "View product"
+    "view": "View product",
+    "off": "{percent}% off",
+    "inStock": "In stock"
   },
   "float": {
     "call": "Call the store",

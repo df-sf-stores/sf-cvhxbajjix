@@ -8,9 +8,12 @@ import { shop as styles } from './styles/shop'
 /** A collection's or a search's products: filters, sort, the grid and its states, and more loading on scroll. */
 export const ListingResults = ({ listing }: { listing: Listing }) => {
   const { t } = useStorefront()
+  // A collection with nothing in it has nothing to narrow, so it shows no filters.
+  const nothing = listing.status === 'ready' && listing.items.length === 0 && listing.selected.length === 0 && listing.priceRange.min === null && listing.priceRange.max === null
+  const filters = !nothing && (listing.facets.length > 0 || listing.priceBounds !== null)
   return (
-    <div className={listing.facets.length || listing.priceBounds ? styles.listingFiltered : styles.listing}>
-      <FilterPanel listing={listing} />
+    <div className={filters ? styles.listingFiltered : styles.listing}>
+      {filters ? <FilterPanel listing={listing} /> : null}
       <div className={styles.results}>
         {listing.status === 'ready' ? (
           <ListingBar listing={listing} />
@@ -22,7 +25,7 @@ export const ListingResults = ({ listing }: { listing: Listing }) => {
           </Notice>
         ) : null}
         {listing.status === 'ready' && listing.items.length === 0 ? (
-          listing.selected.length ? (
+          !nothing ? (
             <Notice title={t('shop.listing.empty')} lead={t('shop.listing.emptyLead')}>
               <Retry label={t('shop.listing.clear')} onRetry={listing.clear} />
             </Notice>

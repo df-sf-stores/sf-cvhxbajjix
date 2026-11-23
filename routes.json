@@ -29,7 +29,6 @@
     "/shop-by-sport": "ShopPage",
     "/brands": "BrandsPage",
     "/team-orders": "TeamOrdersPage",
-    "/gallery": "GalleryPage",
     "/contact": "ContactPage"
   }
 }

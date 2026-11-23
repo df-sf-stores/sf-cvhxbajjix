@@ -14,9 +14,9 @@ export const HeroSlider = () => {
   const [shown, setShown] = useState(0)
   const [paused, setPaused] = useState(false)
   const slides = [
-    { image: 'hero-cricket.webp', tag: t('home.hero.one.tag'), title: t('home.hero.one.title'), lead: t('home.hero.one.lead'), alt: t('home.hero.one.alt'), position: t('home.hero.one.position'), goTo: t('home.hero.one.goTo') },
-    { image: 'hero-football.webp', tag: t('home.hero.two.tag'), title: t('home.hero.two.title'), lead: t('home.hero.two.lead'), alt: t('home.hero.two.alt'), position: t('home.hero.two.position'), goTo: t('home.hero.two.goTo') },
-    { image: 'hero-team.webp', tag: t('home.hero.three.tag'), title: t('home.hero.three.title'), lead: t('home.hero.three.lead'), alt: t('home.hero.three.alt'), position: t('home.hero.three.position'), goTo: t('home.hero.three.goTo') },
+    { image: 'sport-badminton.webp', low: false, tag: t('home.hero.one.tag'), title: t('home.hero.one.title'), lead: t('home.hero.one.lead'), alt: t('home.hero.one.alt'), position: t('home.hero.one.position'), goTo: t('home.hero.one.goTo'), shop: { href: '/collections/badminton-racquets/', label: t('home.hero.racquets') }, more: { href: '/shop-by-sport/', label: t('home.hero.allSports'), icon: 'arrow' } },
+    { image: 'hero-sports-balls.webp', low: true, tag: t('home.hero.two.tag'), title: t('home.hero.two.title'), lead: t('home.hero.two.lead'), alt: t('home.hero.two.alt'), position: t('home.hero.two.position'), goTo: t('home.hero.two.goTo'), shop: { href: '/collections/all/', label: t('home.hero.explore') }, more: { href: '/#categories', label: t('home.hero.findGame'), icon: 'arrow' } },
+    { image: 'hero-team.webp', low: false, tag: t('home.hero.three.tag'), title: t('home.hero.three.title'), lead: t('home.hero.three.lead'), alt: t('home.hero.three.alt'), position: t('home.hero.three.position'), goTo: t('home.hero.three.goTo'), shop: { href: '/collections/all/', label: t('home.hero.explore') }, more: { href: '/team-orders/', label: t('home.hero.team'), icon: 'team' } },
   ] as const
   const count = slides.length
   useEffect(() => {
@@ -29,7 +29,7 @@ export const HeroSlider = () => {
     <section className={styles.hero} aria-roledescription={t('home.hero.carousel')} aria-label={t('home.hero.label')} onPointerEnter={() => setPaused(true)} onPointerLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)}>
       {slides.map((s, i) => (
         <div key={s.image} className={i === shown ? styles.slideActive : styles.slide} aria-hidden={i === shown ? undefined : true} role="group" aria-roledescription={t('home.hero.slide')} aria-label={s.position}>
-          <ThemeImage src={s.image} alt={s.alt} ratio={16 / 9} sizes="100vw" className={styles.slideImg} />
+          <ThemeImage src={s.image} alt={s.alt} ratio={16 / 9} sizes="100vw" className={s.low ? `${styles.slideImg} ${styles.slideImgLow}` : styles.slideImg} />
           <div className={styles.slideShade} />
           <div className={styles.slideContent}>
             <div className={styles.container}>
@@ -39,13 +39,13 @@ export const HeroSlider = () => {
                 <p className={styles.slideLead}>{s.lead}</p>
                 {i === shown ? (
                   <div className={styles.actions}>
-                    <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnOrange}`}>
-                      <span>{t('home.hero.explore')}</span>
-                      <Icon name="arrow" className={styles.btnIcon} />
+                    <Link href={s.shop.href} className={`${styles.btn} ${styles.btnOrange}`}>
+                      <Icon name="cart" className={styles.btnIcon} />
+                      <span>{s.shop.label}</span>
                     </Link>
-                    <Link href="/team-orders/" className={`${styles.btn} ${styles.btnLight}`}>
-                      <Icon name="team" className={styles.btnIcon} />
-                      <span>{t('home.hero.team')}</span>
+                    <Link href={s.more.href} className={`${styles.btn} ${styles.btnLight}`}>
+                      <span>{s.more.label}</span>
+                      <Icon name={s.more.icon} className={styles.btnIcon} />
                     </Link>
                   </div>
                 ) : null}

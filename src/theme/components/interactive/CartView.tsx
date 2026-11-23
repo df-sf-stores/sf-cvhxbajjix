@@ -85,7 +85,7 @@ export const CartView = () => {
         <ul className={styles.lines}>
           {cart.lines.map((line) => (
             <li key={line.versionId} className={clsx(styles.line, line.pending && styles.pending)}>
-              {line.photo ? <Image image={line.photo} alt={line.name} ratio={0.8} sizes="88px" className={styles.photo} /> : <span className={styles.noPhoto} />}
+              {line.photo ? <Image image={line.photo} alt={line.name} ratio={1} sizes="88px" className={styles.photo} /> : <span className={styles.noPhoto} />}
               <div className={styles.info}>
                 <div className={styles.top}>
                   {line.href ? (

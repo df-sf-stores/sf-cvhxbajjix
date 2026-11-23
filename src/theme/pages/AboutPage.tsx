@@ -32,11 +32,9 @@ export const AboutPage = () => {
             <p className={styles.lead}>{t('pages.about.company', { store: store.name })}</p>
           </div>
           <div className={`${styles.splitMedia} ${styles.reveal}`}>
-            <ThemeImage src="team-kids.webp" alt={t('pages.about.imageAlt')} ratio={4 / 3} sizes="(min-width: 900px) 50vw, 100vw" className={styles.splitImg} />
-            <span className={styles.since}>
-              <span className={styles.sinceYear}>{t('pages.about.timeline.foundedYear')}</span>
-              <span className={styles.sinceLabel}>{t('pages.about.established')}</span>
-            </span>
+            <div className={styles.logoPanel}>
+              <ThemeImage src="hitesh-crest.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={520 / 648} sizes="(min-width: 900px) 320px, 60vw" className={styles.logoPanelImg} />
+            </div>
           </div>
         </div>
       </section>
@@ -69,9 +67,8 @@ export const AboutPage = () => {
       <section className={styles.sectionWhite}>
         <div className={styles.container}>
           <div className={`${styles.founder} ${styles.reveal}`}>
-            <div className={styles.founderPhoto}>
-              <Icon name="team" className={styles.founderIcon} />
-              <span>{t('pages.about.founder.photo')}</span>
+            <div className={styles.founderMedia}>
+              <ThemeImage src="founder.webp" alt={t('pages.about.founder.photoAlt', { name: t('pages.about.founder.name') })} ratio={4 / 5} sizes="(min-width: 900px) 320px, 80vw" className={styles.founderImg} />
             </div>
             <div className={styles.prose}>
               <p className={styles.eyebrow}>{t('pages.about.founder.eyebrow')}</p>
@@ -104,7 +101,7 @@ export const AboutPage = () => {
             ))}
           </ul>
           <div className={styles.center}>
-            <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnOrange}`}>
+            <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnBrand}`}>
               <span>{t('pages.about.explore')}</span>
               <Icon name="arrow" className={styles.btnIcon} />
             </Link>

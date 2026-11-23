@@ -1,27 +1,9 @@
-import { Image, Link, Price, useStorefront, type ProductCard as Card } from '@dripfunnel/storefront-core/theme'
+import { type ProductCard as Card } from '@dripfunnel/storefront-core/theme'
+import { StoreProductCard } from './Blocks'
 import { shop as styles } from './styles/shop'
 
-export const ProductCard = ({ product }: { product: Card }) => {
-  const { store, locale, t } = useStorefront()
-  return (
-    <article className={styles.card}>
-      <Link href={product.href} className={styles.cardLink}>
-        <div className={styles.cardPicture}>
-          {product.photo ? <Image image={product.photo} alt={product.photo.alt ?? product.name} ratio={0.8} sizes="(min-width: 900px) 25vw, 50vw" className={styles.cardImage} /> : <span className={styles.noPicture}>{t('shop.card.noPicture')}</span>}
-          {product.badges[0] ? <span className={styles.badge}>{product.badges[0].label}</span> : null}
-          {product.stock.inStock ? null : <span className={styles.soldOut}>{t('shop.card.soldOut')}</span>}
-        </div>
-        <h3 className={styles.cardName}>{product.name}</h3>
-      </Link>
-      {product.price ? (
-        <p className={styles.cardPrice}>
-          {product.from ? <span className={styles.from}>{t('shop.card.from')}</span> : null}
-          <Price money={product.price} compareAt={product.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.price} />
-        </p>
-      ) : null}
-    </article>
-  )
-}
+/** A product in a grid: the same card as the home page's, so every list of products looks and works alike. */
+export const ProductCard = ({ product }: { product: Card }) => <StoreProductCard product={product} />
 
 export const ProductGrid = ({ products, wide = false }: { products: readonly Card[]; wide?: boolean }) => (
   <ul className={wide ? styles.gridWide : styles.grid}>

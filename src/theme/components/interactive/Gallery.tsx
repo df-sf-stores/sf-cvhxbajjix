@@ -16,7 +16,7 @@ export const Gallery = ({ photos, video, name }: { photos: readonly Photo[]; vid
   return (
     <div className={styles.gallery}>
       <div className={styles.stage}>
-        {playing && video ? <Video video={video} poster={first} label={name} ratio={0.8} className={styles.media} /> : <Image image={photo} alt={photo.alt ?? name} ratio={0.8} sizes="(min-width: 900px) 50vw, 100vw" className={styles.media} />}
+        {playing && video ? <Video video={video} poster={first} label={name} ratio={1} className={styles.media} /> : <Image image={photo} alt={photo.alt ?? name} ratio={1} sizes="(min-width: 900px) 50vw, 100vw" className={styles.media} />}
       </div>
       {photos.length > 1 || video ? (
         <div className={styles.thumbs}>

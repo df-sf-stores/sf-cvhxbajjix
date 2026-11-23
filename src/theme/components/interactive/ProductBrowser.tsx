@@ -33,7 +33,7 @@ export const ProductBrowser = () => {
       ) : status === 'error' ? (
         <div className={styles.empty}>
           <p className={styles.text}>{t('pages.shop.failed')}</p>
-          <button type="button" className={`${styles.btn} ${styles.btnNavy}`} onClick={retry}>
+          <button type="button" className={`${styles.btn} ${styles.btnDark}`} onClick={retry}>
             {t('pages.shop.retry')}
           </button>
         </div>
@@ -55,7 +55,7 @@ export const ProductBrowser = () => {
           <Icon name="box" className={styles.emptyIcon} />
           <p className={styles.h3}>{t('pages.shop.emptyTitle')}</p>
           <p className={styles.text}>{t('pages.shop.empty')}</p>
-          <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnOrange}`}>
+          <Link href="/shop-by-sport/" className={`${styles.btn} ${styles.btnBrand}`}>
             {t('pages.shop.seeAll')}
           </Link>
         </div>

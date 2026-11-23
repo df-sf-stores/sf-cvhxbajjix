@@ -54,6 +54,7 @@ export const ProductPage = () => {
               <p className={styles.price}>
                 {page.from ? <span className={styles.from}>{t('shop.card.from')}</span> : null}
                 <Price money={page.price} compareAt={page.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.priceTag} />
+                {page.compareAt && Number(page.compareAt.amount) > Number(page.price.amount) ? <span className={styles.off}>{t('site.card.off', { percent: Math.round((1 - Number(page.price.amount) / Number(page.compareAt.amount)) * 100) })}</span> : null}
               </p>
             ) : null}
             <Options page={page} />

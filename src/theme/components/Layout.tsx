@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { ConsentBanner, ConsentSettingsButton, Link, PoweredBy, PreviewBanner, ThemeImage, useCart, useLocation, useStorefront, useWishlist } from '@dripfunnel/storefront-core/theme'
+import { Announcement } from './Announcement'
 import { Icon, useSports } from './catalog'
 import { MenuSearch } from './interactive/MenuSearch'
 import { SiteMenu } from './interactive/SiteMenu'
@@ -17,27 +18,30 @@ export const Layout = ({ children }: { children: ReactNode }) => {
   const { count: wished } = useWishlist()
   const links = [
     { href: '/', label: t('site.nav.home') },
-    { href: '/about/', label: t('site.nav.about') },
+    { href: '/collections/all/', label: t('site.nav.all') },
     { href: '/shop-by-sport/', label: t('site.nav.shop') },
     { href: '/brands/', label: t('site.nav.brands') },
     { href: '/team-orders/', label: t('site.nav.team') },
-    { href: '/gallery/', label: t('site.nav.gallery') },
+    { href: '/about/', label: t('site.nav.about') },
     { href: '/contact/', label: t('site.nav.contact') },
   ]
+  const quick = links.filter((l) => l.href !== '/')
   const help = [
     { href: '/collections/all/', label: t('site.footer.allProducts') },
     { href: '/account/', label: t('common.tools.account') },
     { href: '/account/orders/', label: t('site.footer.orders') },
     { href: '/cart/', label: t('common.tools.cart') },
-    { href: '/policies/shipping/', label: t('common.footer.shipping') },
-    { href: '/policies/returns/', label: t('common.footer.returns') },
-    { href: '/policies/privacy/', label: t('common.footer.privacy') },
-    { href: '/policies/terms/', label: t('common.footer.terms') },
+    { href: '/policies/terms/', label: t('pages.policy.terms') },
+    { href: '/policies/privacy/', label: t('pages.policy.privacy') },
+    { href: '/policies/shipping/', label: t('pages.policy.shipping') },
+    { href: '/policies/legal/', label: t('pages.policy.legal') },
+    { href: '/policies/returns/', label: t('pages.policy.returns') },
   ]
   const mail = contact.mail(t('site.mail.subject', { store: store.name }), '')
   return (
     <div className={styles.shell} id="top">
       {mode === 'live' ? null : <PreviewBanner t={t} className={styles.preview} />}
+      <Announcement className={styles.announce} markClassName={styles.announceMark} />
       <div className={styles.topbar}>
         <div className={`${styles.container} ${styles.topInner}`}>
           <div className={styles.topLinks}>
@@ -66,7 +70,11 @@ export const Layout = ({ children }: { children: ReactNode }) => {
       <header className={styles.header}>
         <div className={`${styles.container} ${styles.headerInner}`}>
           <Link href="/" className={styles.brand}>
-            <ThemeImage src="hitesh-logo.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={3} sizes="220px" className={styles.logo} />
+            <ThemeImage src="hitesh-crest.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={520 / 648} sizes="64px" className={styles.logo} />
+            <span className={styles.brandText} aria-hidden="true">
+              <span className={styles.brandName}>{store.name}</span>
+              <span className={styles.brandTag}>{t('site.brand.tag')}</span>
+            </span>
           </Link>
           <SiteMenu label={t('site.nav.menu')} close={t('site.nav.close')}>
             <div className={styles.menuTop}>
@@ -123,7 +131,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
           <div className={styles.footerGrid}>
             <div className={styles.footerBrand}>
               <span className={styles.footerLogoWrap}>
-                <ThemeImage src="hitesh-logo.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={3} sizes="180px" className={styles.footerLogo} />
+                <ThemeImage src="hitesh-crest.webp" alt={t('site.brand.logoAlt', { store: store.name })} ratio={520 / 648} sizes="112px" className={styles.footerLogo} />
               </span>
               <p className={styles.footerText}>{t('site.footer.about')}</p>
               <p className={styles.gst}>{t('site.footer.gst')}</p>
@@ -150,7 +158,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
               <div>
                 <h2 className={styles.footerTitle}>{t('site.footer.quick')}</h2>
                 <ul className={styles.footerLinks}>
-                  {links.map((l) => (
+                  {quick.map((l) => (
                     <li key={l.href}>
                       <Link href={l.href} className={styles.footerLink}>
                         {l.label}
@@ -186,7 +194,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
             </div>
             <div>
               <h2 className={styles.footerTitle}>{t('site.footer.contact')}</h2>
-              <Link href={t('site.links.google')} className={styles.footerContact}>
+              <Link href={t('site.links.map')} className={styles.footerContact}>
                 <Icon name="pin" className={styles.footerIcon} />
                 <span>{t('site.address')}</span>
               </Link>

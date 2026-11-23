@@ -45,12 +45,15 @@
     "eyebrow": "Policies",
     "title": "Our policies",
     "lead": "The terms that apply when you shop with us.",
-    "terms": "Terms of sale",
-    "privacy": "Privacy policy",
-    "shipping": "Delivery",
-    "returns": "Returns and refunds",
-    "legal": "Legal notice",
-    "ask": "Questions about this policy? Get in touch and we will answer."
+    "terms": "Terms of Sale",
+    "privacy": "Privacy Policy",
+    "shipping": "Delivery Policy",
+    "returns": "Returns and Refunds Policy",
+    "legal": "Legal Notice",
+    "ask": "Get in touch and we will be happy to help.",
+    "seo": "{name} | {store}",
+    "questions": "Questions about this policy?",
+    "contact": "Contact us"
   },
   "notFound": {
     "title": "We can’t find that page",
@@ -70,8 +73,6 @@
     "companyEyebrow": "About the company",
     "companyTitle": "Your premier sports destination",
     "company": "{store} is a premier retail destination dedicated to providing high-quality sports equipment, athletic apparel, fitness gear, and footwear. Catering to beginners, amateur enthusiasts, school/college teams, and professional athletes alike, we offer a wide range of authentic products across major sports such as cricket, football, badminton, tennis, swimming, and gym fitness. Our focus is on combining top-tier brands, expert product guidance, and competitive pricing under one roof.",
-    "imageAlt": "A young football team listening to their coach",
-    "established": "Established",
     "journeyEyebrow": "Our journey",
     "journeyTitle": "From a neighbourhood outlet to a sports hub",
     "journey": "Founded in the year 2015 with a passion for promoting fitness and sporting excellence in Ramachandrapuram, Andhra Pradesh, {store} began as a modest neighborhood sports outlet. Over the years, driven by trust, genuine products, and strong relationships with local athletes, schools, and sports academies, we have grown into a well-recognised sports hub. Today, we continue to expand our product range and serve a loyal community of sports lovers across the region.",
@@ -94,8 +95,8 @@
       "name": "Sait Hitesh Kumar",
       "role": "Founder & Owner",
       "body": "Sait Hitesh Kumar founded {store} in 2015 with a passion for promoting fitness and sporting excellence in Ramachandrapuram. Drop by the store or send a message for advice on the right gear for your game.",
-      "photo": "Founder photo – coming soon",
-      "chat": "Chat with us"
+      "chat": "Chat with us",
+      "photoAlt": "Portrait of {name}, founder of the store"
     },
     "stats": {
       "eyebrow": "By the numbers",
@@ -125,11 +126,9 @@
     "instagramHandle": "@{handle}",
     "hours": {
       "title": "Store timings",
-      "weekdays": "Monday – Friday",
-      "saturday": "Saturday",
-      "sunday": "Sunday",
-      "tbc": "To be confirmed",
-      "note": "Timings to be confirmed by the owner"
+      "days": "Monday – Sunday",
+      "time": "10:00 AM – 9:00 PM",
+      "note": "May vary with public holidays."
     },
     "map": {
       "title": "Find us on the map",
@@ -200,12 +199,19 @@
     "seo": "Brands | {store}",
     "eyebrow": "Brands",
     "title": "Top brands we stock",
-    "lead": "Brand logos will appear here once confirmed. Ask us about any brand you are looking for.",
-    "logo": "Brand logo",
-    "note": "Placeholder – to be replaced",
+    "lead": "Genuine equipment from the names players trust. Pick a brand to see everything we have from it.",
     "askTitle": "Looking for a particular brand?",
     "ask": "Send us a message on WhatsApp and we will tell you what is in stock.",
-    "askAction": "Ask on WhatsApp"
+    "askAction": "Ask on WhatsApp",
+    "count": "{count} products",
+    "countOne": "1 product",
+    "loading": "Loading brands",
+    "empty": "Brands appear here as products are added to the store.",
+    "logosEyebrow": "Brands we offer",
+    "logosTitle": "Our trusted brands",
+    "logosLead": "Genuine equipment from the names players trust, across cricket, racket sports, football, fitness and more.",
+    "onlineTitle": "Shop online by brand",
+    "onlineLead": "Brands with products in our online store right now."
   },
   "team": {
     "seo": "Team & Bulk Orders | {store}",
@@ -280,24 +286,231 @@
       "whatsapp": "Hi {store}, I'd like to enquire about a team / bulk order.\nName: {name}\nInstitution / Team: {institution}\nPhone: {phone}\nSport: {sport}\nQuantity: {quantity}\nMessage: {message}"
     }
   },
-  "gallery": {
-    "seo": "Gallery | {store}",
-    "eyebrow": "Gallery",
-    "title": "Store, products & events",
-    "lead": "A look at the sports we love. Store photos, product displays and event pictures will be added here.",
-    "placeholder": "Placeholder photo",
-    "stadium": "Floodlit cricket ground",
-    "team": "Young footballers with their coach",
-    "gym": "Gym & fitness equipment",
-    "badminton": "Badminton in action",
-    "tennis": "Tennis on a clay court",
-    "swimming": "Swimming training",
-    "volley": "Team celebrations",
-    "goal": "Football under lights",
-    "run": "Running at dawn",
-    "boots": "Football boots",
-    "tt": "Table tennis",
-    "fitness": "Fitness at home",
-    "more": "See more on Instagram"
+  "policies": {
+    "terms": {
+      "title": "Terms of Sale",
+      "intro": "Welcome to {store}. By accessing our website or placing an order, you agree to the following Terms of Sale.",
+      "s1": {
+        "title": "Product Information",
+        "b1": "We make every effort to display accurate product descriptions, images, specifications and prices. However, slight variations in colour, appearance or packaging may occur due to photography, screen settings or manufacturer updates."
+      },
+      "s2": {
+        "title": "Pricing and Payments",
+        "b1": "All prices are displayed in Indian Rupees (INR). Orders are subject to product availability and successful payment confirmation. Any applicable shipping charges or additional fees will be displayed during checkout."
+      },
+      "s3": {
+        "title": "Order Confirmation",
+        "b1": "Once an order is placed, you will receive an order confirmation through the contact details provided. {store} reserves the right to contact customers for order verification or clarification."
+      },
+      "s4": {
+        "title": "Order Cancellation",
+        "b1": "Cancellation requests should be made as early as possible. Orders that have already been dispatched may not be eligible for cancellation and may instead be subject to our Returns and Refunds Policy."
+      },
+      "s5": {
+        "title": "Shipping and Delivery",
+        "b1": "Orders are shipped through our logistics partner, Shiprocket. Estimated delivery timelines, shipping conditions and tracking information are explained in our Delivery Policy."
+      },
+      "s6": {
+        "title": "Returns and Refunds",
+        "b1": "All return, replacement and refund requests are governed by our Returns and Refunds Policy."
+      },
+      "s7": {
+        "title": "Customer Responsibility",
+        "b1": "Customers are responsible for providing accurate shipping addresses, contact numbers and other required details while placing an order."
+      },
+      "s8": {
+        "title": "Changes to Terms",
+        "b1": "{store} reserves the right to update these Terms of Sale when necessary. Updated terms will be published on this website."
+      },
+      "outro": "For any questions regarding your purchase, please contact us through our official contact details."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "At {store}, we respect your privacy and are committed to protecting the personal information you share with us.",
+      "s1": {
+        "title": "Information We Collect",
+        "b1": "When you visit our website or place an order, we may collect:",
+        "b2": "Full name",
+        "b3": "Mobile number and email address",
+        "b4": "Billing and shipping address",
+        "b5": "Order and transaction details",
+        "b6": "Information voluntarily shared through our contact forms"
+      },
+      "s2": {
+        "title": "How We Use Your Information",
+        "b1": "We use the information collected to:",
+        "b2": "Process and fulfil customer orders.",
+        "b3": "Arrange shipping and delivery.",
+        "b4": "Provide order updates and tracking information.",
+        "b5": "Respond to customer enquiries and complaints.",
+        "b6": "Improve our website and shopping experience.",
+        "b7": "Meet applicable legal and regulatory requirements."
+      },
+      "s3": {
+        "title": "Sharing of Information",
+        "b1": "We may share necessary customer information with trusted third-party service providers, including Shiprocket and relevant delivery partners, payment gateways and website service providers, strictly where required to process orders, payments and deliveries or provide our services.",
+        "b2": "We do not sell customers' personal information to third parties."
+      },
+      "s4": {
+        "title": "Payment Security",
+        "b1": "Online payments are processed through the payment service providers available on our website. We do not intend to store customers' complete card details, UPI PINs or banking passwords."
+      },
+      "s5": {
+        "title": "Data Protection",
+        "b1": "We take reasonable measures to protect customer information against unauthorised access, misuse, disclosure or loss."
+      },
+      "s6": {
+        "title": "Cookies",
+        "b1": "Our website may use cookies or similar technologies to improve website functionality, understand visitor activity and enhance the browsing experience."
+      },
+      "s7": {
+        "title": "Your Privacy Rights",
+        "b1": "You may contact us to request access to, correction of or deletion of your personal information, subject to applicable legal requirements and necessary record-retention obligations. You may also raise concerns about how your information is used."
+      },
+      "s8": {
+        "title": "Policy Updates",
+        "b1": "We may update this Privacy Policy from time to time. Any changes will be published on this page."
+      },
+      "s9": {
+        "title": "Contact Us",
+        "b1": "For privacy-related questions or concerns, please contact {store} through our official contact details."
+      }
+    },
+    "shipping": {
+      "title": "Delivery Policy",
+      "intro": "At {store}, we aim to deliver your orders safely and efficiently. We work with Shiprocket and its associated courier partners to provide reliable shipping services across our serviceable delivery locations in India.",
+      "s1": {
+        "title": "Order Processing",
+        "b1": "Orders are processed after successful order confirmation and payment verification, where applicable. Processing and dispatch may take additional time during weekends, public holidays, sale periods or unforeseen circumstances."
+      },
+      "s2": {
+        "title": "Estimated Delivery Time",
+        "b1": "Our estimated delivery time is **3–7 working days**, depending on the customer's delivery location and courier serviceability.",
+        "b2": "Please note that this is an estimated timeframe and not a guaranteed delivery date."
+      },
+      "s3": {
+        "title": "Shipping Partner",
+        "b1": "We use Shiprocket as our shipping and logistics platform to facilitate order dispatch and delivery through available courier partners."
+      },
+      "s4": {
+        "title": "Order Tracking",
+        "b1": "Once your order is dispatched, tracking details will be shared through the available communication channels. Customers can use the tracking information to check their shipment status."
+      },
+      "s5": {
+        "title": "Delivery Delays",
+        "b1": "Although we make every effort to deliver orders within the estimated timeframe, delays may occasionally occur due to weather conditions, public holidays, operational issues, courier disruptions or circumstances beyond our control."
+      },
+      "s6": {
+        "title": "Incorrect Address or Unsuccessful Delivery",
+        "b1": "Customers are requested to provide accurate shipping details while placing an order. Delays or failed deliveries caused by incorrect addresses, unavailable recipients or unsuccessful delivery attempts may require additional coordination with the courier partner."
+      },
+      "s7": {
+        "title": "Damaged or Missing Packages",
+        "b1": "If your package arrives visibly damaged, tampered with or incomplete, please contact us as soon as possible with your order details and supporting photographs or an unboxing video, where available."
+      },
+      "s8": {
+        "title": "Contact for Delivery Support",
+        "b1": "For shipping or tracking-related assistance, please contact {store} through our official contact details."
+      }
+    },
+    "legal": {
+      "title": "Legal Notice",
+      "intro": "All content displayed on the {store} website, including text, product descriptions, images, graphics, logos and website design, is intended for general informational and commercial purposes.",
+      "s1": {
+        "title": "Intellectual Property",
+        "b1": "Unless otherwise stated, website content, branding and original materials belonging to {store} may not be copied, reproduced, distributed or used for commercial purposes without prior written permission."
+      },
+      "s2": {
+        "title": "Product Representation",
+        "b1": "We make reasonable efforts to ensure that product information, images and descriptions are accurate. Minor variations in colour, appearance or packaging may occur due to display settings, photography or manufacturer changes."
+      },
+      "s3": {
+        "title": "Third-Party Services",
+        "b1": "Our website may use third-party services, including payment providers and shipping partners such as Shiprocket. These services may operate under their own terms, conditions and privacy policies."
+      },
+      "s4": {
+        "title": "Website Availability",
+        "b1": "We make reasonable efforts to maintain website availability and functionality. However, temporary interruptions may occur due to maintenance, technical issues or circumstances beyond our control."
+      },
+      "s5": {
+        "title": "Limitation of Liability",
+        "b1": "Nothing in this notice is intended to exclude or restrict any consumer rights or legal remedies available under applicable Indian law."
+      },
+      "s6": {
+        "title": "Governing Law",
+        "b1": "These website policies and transactions shall be governed by the applicable laws of India."
+      },
+      "s7": {
+        "title": "Contact Information",
+        "b1": "For legal or general enquiries, please contact {store} through the official contact details provided on our website."
+      }
+    },
+    "returns": {
+      "title": "Returns and Refunds Policy",
+      "intro": "At {store}, customer satisfaction is our priority. We strive to provide quality products and a smooth shopping experience. If you encounter any issues with your purchase, please review our Returns and Refunds Policy below.",
+      "s1": {
+        "title": "Return Period",
+        "b1": "Customers may request a return or replacement within **7 days from the date of delivery** of their order, subject to the eligibility conditions mentioned in this policy.",
+        "b2": "Requests submitted after this period may not be accepted, except where required under applicable law."
+      },
+      "s2": {
+        "title": "Eligible Reasons for Returns",
+        "b1": "A return or replacement request may be considered in the following situations:",
+        "b2": "The product received is damaged or defective.",
+        "b3": "The wrong product has been delivered.",
+        "b4": "The product received is significantly different from its description on our website.",
+        "b5": "An item is missing from the delivered order.",
+        "b6": "All requests will be reviewed before approval."
+      },
+      "s3": {
+        "title": "Conditions for Returns",
+        "b1": "To be eligible for a return:",
+        "b2": "The product should be unused and in its original condition, wherever applicable.",
+        "b3": "Original packaging, tags, accessories and invoice should be included, wherever applicable.",
+        "b4": "The product must not have been damaged due to misuse, mishandling or unauthorised modifications by the customer.",
+        "b5": "These conditions do not limit any rights available to customers under applicable consumer protection laws."
+      },
+      "s4": {
+        "title": "How to Request a Return",
+        "b1": "To initiate a return or replacement, customers must contact {store} within **7 days of receiving the product**.",
+        "b2": "Please provide:",
+        "b3": "Order ID or order confirmation details.",
+        "b4": "Reason for requesting the return.",
+        "b5": "Clear photographs or videos showing the issue.",
+        "b6": "Unboxing video, if available.",
+        "b7": "Our team will review your request and communicate the next steps, including return arrangements where applicable."
+      },
+      "s5": {
+        "title": "Refund Policy",
+        "b1": "Once a return and refund request is approved and the returned product has been received and inspected, the refund will be initiated.",
+        "b2": "Refunds will be processed through the **original payment method used while placing the order**, wherever technically possible.",
+        "b3": "The time taken for the refund to reflect in your account may vary depending on your bank or payment service provider.",
+        "b4": "Customers will be informed once the refund has been initiated.",
+        "b5": "For Cash on Delivery orders, the customer may be asked to provide valid bank account details for processing an approved refund, as no original electronic payment method exists."
+      },
+      "s6": {
+        "title": "Replacement Policy",
+        "b1": "If a product is damaged, defective or incorrectly delivered, a replacement may be arranged, subject to product availability and approval of the request.",
+        "b2": "If a replacement is unavailable, an appropriate refund or other resolution will be provided in accordance with applicable law."
+      },
+      "s7": {
+        "title": "Non-Eligible Return Situations",
+        "b1": "Returns may not be accepted for:",
+        "b2": "Products damaged due to improper use or accidental damage after delivery.",
+        "b3": "Products showing signs of unauthorised alteration or modification.",
+        "b4": "Issues arising from normal wear and tear.",
+        "b5": "Products returned without the required accessories or components, where their absence affects the return assessment.",
+        "b6": "This section does not exclude remedies that customers are legally entitled to receive."
+      },
+      "s8": {
+        "title": "Order Cancellation",
+        "b1": "Cancellation requests should be submitted before the order is dispatched. Once an order has been dispatched, cancellation may no longer be possible and the request will be handled under the applicable return policy and consumer protection requirements."
+      },
+      "s9": {
+        "title": "Contact Us",
+        "b1": "For any questions or assistance regarding returns, replacements or refunds, please contact {store} through the official contact details provided on our website."
+      },
+      "outro": "We appreciate your trust in {store} and thank you for shopping with us."
+    }
   }
 }

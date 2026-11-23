@@ -37,5 +37,29 @@
       "name": "Gifts & Trophies",
       "blurb": "Trophies, medals, mementos and sporty gifts."
     }
+  },
+  "brands": {
+    "yonex": "Yonex",
+    "li-ning": "Li-Ning",
+    "hundred": "Hundred",
+    "victor": "Victor",
+    "apacs": "Apacs",
+    "maxbolt": "Maxbolt",
+    "nivia": "Nivia",
+    "cosco": "Cosco",
+    "ss": "SS",
+    "sg": "SG",
+    "tynor": "Tynor",
+    "konex": "Konex",
+    "guptas": "Gupta's",
+    "sega": "Sega",
+    "jj-jonex": "J.J. Jonex",
+    "gupta": "Gupta",
+    "solinco": "Solinco",
+    "babolat": "Babolat",
+    "stag": "Stag",
+    "asics": "Asics",
+    "black-panther": "Black Panther",
+    "exergy": "Exergy"
   }
 }

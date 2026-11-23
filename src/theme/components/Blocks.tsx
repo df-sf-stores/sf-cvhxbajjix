@@ -23,6 +23,9 @@ export const StoreProductCard = ({ product }: { product: Card }) => {
         </Link>
         {product.badges[0] ? <span className={styles.productTag}>{product.badges[0].label}</span> : null}
         {product.stock.inStock ? null : <span className={styles.soldOut}>{t('site.card.soldOut')}</span>}
+        {product.stock.inStock && product.price && product.compareAt && Number(product.compareAt.amount) > Number(product.price.amount) ? (
+          <span className={styles.saleBadge}>{t('site.card.off', { percent: Math.round((1 - Number(product.price.amount) / Number(product.compareAt.amount)) * 100) })}</span>
+        ) : null}
         <CardHeart productId={product.id} name={product.name} />
       </div>
       <div className={styles.productBody}>
@@ -37,12 +40,54 @@ export const StoreProductCard = ({ product }: { product: Card }) => {
             <Price money={product.price} compareAt={product.compareAt} includesTax={store.pricesIncludeTax} locale={locale} t={t} className={styles.priceTag} />
           </p>
         ) : null}
+        <p className={product.stock.inStock ? styles.stock : styles.stockOut}>{product.stock.inStock ? t('site.card.inStock') : t('site.card.soldOut')}</p>
         <Link href={product.href} className={styles.buy}>
           <Icon name="cart" className={styles.enquireIcon} />
           <span>{product.stock.inStock ? t('site.card.buy') : t('site.card.view')}</span>
         </Link>
       </div>
     </article>
+  )
+}
+
+const brandLogos = [
+  { id: 'yonex', src: 'brand-yonex.webp', alt: 'catalog.brands.yonex' },
+  { id: 'li-ning', src: 'brand-li-ning.webp', alt: 'catalog.brands.li-ning' },
+  { id: 'hundred', src: 'brand-hundred.webp', alt: 'catalog.brands.hundred' },
+  { id: 'victor', src: 'brand-victor.webp', alt: 'catalog.brands.victor' },
+  { id: 'apacs', src: 'brand-apacs.webp', alt: 'catalog.brands.apacs' },
+  { id: 'maxbolt', src: 'brand-maxbolt.webp', alt: 'catalog.brands.maxbolt' },
+  { id: 'nivia', src: 'brand-nivia.webp', alt: 'catalog.brands.nivia' },
+  { id: 'cosco', src: 'brand-cosco.webp', alt: 'catalog.brands.cosco' },
+  { id: 'ss', src: 'brand-ss.webp', alt: 'catalog.brands.ss' },
+  { id: 'sg', src: 'brand-sg.webp', alt: 'catalog.brands.sg' },
+  { id: 'tynor', src: 'brand-tynor.webp', alt: 'catalog.brands.tynor' },
+  { id: 'konex', src: 'brand-konex.webp', alt: 'catalog.brands.konex' },
+  { id: 'guptas', src: 'brand-guptas.webp', alt: 'catalog.brands.guptas' },
+  { id: 'sega', src: 'brand-sega.webp', alt: 'catalog.brands.sega' },
+  { id: 'jj-jonex', src: 'brand-jj-jonex.webp', alt: 'catalog.brands.jj-jonex' },
+  { id: 'gupta', src: 'brand-gupta.webp', alt: 'catalog.brands.gupta' },
+  { id: 'solinco', src: 'brand-solinco.webp', alt: 'catalog.brands.solinco' },
+  { id: 'babolat', src: 'brand-babolat.webp', alt: 'catalog.brands.babolat' },
+  { id: 'stag', src: 'brand-stag.webp', alt: 'catalog.brands.stag' },
+  { id: 'asics', src: 'brand-asics.webp', alt: 'catalog.brands.asics' },
+  { id: 'black-panther', src: 'brand-black-panther.webp', alt: 'catalog.brands.black-panther' },
+  { id: 'exergy', src: 'brand-exergy.webp', alt: 'catalog.brands.exergy' },
+] as const
+
+/** The brands the store offers, as the logos the store supplied: each whole, on its own ground. */
+export const BrandLogos = () => {
+  const { t } = useStorefront()
+  return (
+    <ul className={styles.logoGrid}>
+      {brandLogos.map((b) => (
+        <li key={b.id} className={styles.reveal}>
+          <span className={b.id === 'exergy' ? `${styles.logoTile} ${styles.logoTileLight}` : styles.logoTile}>
+            <ThemeImage src={b.src} alt={t(b.alt)} ratio={12 / 5} sizes="(min-width: 1200px) 190px, (min-width: 640px) 25vw, 50vw" className={styles.logoImg} />
+          </span>
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -73,11 +118,14 @@ export const SportTile = ({ sport }: { sport: Sport }) => (
         <Icon name={sport.id} className={styles.sportBadgeIcon} />
       </span>
       <span className={styles.sportName}>{sport.name}</span>
+      <span className={styles.sportMore} aria-hidden="true">
+        <Icon name="arrow" className={styles.sportMoreIcon} />
+      </span>
     </span>
   </Link>
 )
 
-/** The navy heading band at the top of each inner page. */
+/** The dark-green heading band at the top of each inner page. */
 export const PageHero = ({ eyebrow, title, lead, children }: { eyebrow: string; title: string; lead: string; children?: ReactNode }) => (
   <section className={styles.pageHero}>
     <span className={styles.pageHeroStripe} />
